@@ -1,7 +1,7 @@
 import * as d3 from "d3";
-import { Axis } from "./Axis";
-import Line from "./Line";
-import Bar from "./Bar";
+import { Axis } from "../components/Axis";
+import Line from "../components/Line";
+import Bar from "../components/Bar";
 
 type margin = {
     top: number,
@@ -41,20 +41,13 @@ export function LinePlot({ data, margin, height, width }: LinePlotProps) {
     const x = d3.scaleLinear([0, data.length - 1], [0, innerWidth]);
     const y = d3.scaleLinear(yDomain, [innerHeight, 0]);
 
-    const xBand = d3.scaleBand(data.map(d => d), [0, innerWidth]).padding(0.1);
 
 
     return (
         <svg width={width} height={height}>
-            <g style={{transform: "translate(20px, 6px)"}}>
-                <Bar
-                    data={data}
-                    height={innerHeight}
-                    x={xBand} y={y}
-                    attributes={[
-                        { "fill": '#69b3a2' },
-                    ]} />
-                    
+            <g style={{ transform: "translate(20px, 6px)" }}>
+            
+
                 <Line data={data} x={x} y={y} />
                 <Axis
                     axis={d3.axisLeft(y).ticks(5)}

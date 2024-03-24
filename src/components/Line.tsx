@@ -1,4 +1,5 @@
-import * as d3 from 'd3'
+import * as d3 from 'd3';
+import { motion } from "framer-motion"
 
 type LineProps = {
     data: number[],
@@ -13,11 +14,25 @@ const Line = ({ data, x, y }: LineProps) => {
 
     return (
         <>
-            <path fill="none" stroke="currentColor" strokeWidth={1.5} d={line(data) || undefined} />
+            <motion.path
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 1 }}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.5}
+                d={line(data) || undefined}
+            />
             <g fill="white" stroke="currentColor" strokeWidth={1.5}>
                 {
                     data.map((d, i) => (
-                        <circle key={i} cx={x(i)} cy={y(d)} r={2.5} />
+                        <motion.circle
+                            initial={{ r: 0 }}
+                            animate={{ r: 2.5 }}
+                            transition={{ duration: 1, delay: i / 10}}
+                            key={i}
+                            cx={x(i)}
+                            cy={y(d)} />
                     ))
                 }
             </g>
