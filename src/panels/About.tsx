@@ -11,6 +11,9 @@ const About: React.FC<Props> = (props) => {
     return (
         <Box>
             <Heading as="h1">About</Heading>
+            <p>
+                While trying to explore different chart implementations
+            </p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate repellat molestias assumenda delectus reiciendis excepturi iure doloribus, deserunt nam nostrum nobis eos in id at perferendis impedit aperiam eveniet pariatur!
         </Box>
     );

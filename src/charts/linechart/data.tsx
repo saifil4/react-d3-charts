@@ -18,3 +18,8 @@ export const margin: {
 
 export const LineChartData: Array<any> =
     [1, 2.3, 3.9, 4, 5.1, 2.3, 7, 8, 9, 10]
+
+export const MultiLineChartData: Array<any> = [
+    [1, 2.3, 3.9, 4, 5.1, 2.3, 7, 8, 9, 10],
+    [4, 3, 5, 2, 7, 6, 2, 4, 9, 7]
+]

@@ -1,7 +1,9 @@
-import { LinePlot } from "./charts/linechart";
-import { BarChart } from "./charts/barchart";
 import About from "./panels/About";
 import GettingStarted from "./panels/GettingStarted";
+import LineChartPanel from "./panels/LineChartPanel";
+import PieChart from "./charts/piechart";
+import Axis from "./charts/axis";
+
 type Panel = {
     name: string,
     component: React.FC<any>,
@@ -26,16 +28,31 @@ export const PanelData: Group[] = [
             }
         ]
     },
+
     {
-        name: "Charts",
+        name: "Line Charts",
         panels: [
             {
-                name: "LinePlot",
-                component: LinePlot
-            },
+                name: "Simple Line Chart",
+                component: LineChartPanel
+            }
+        ]
+    },
+    {
+        name: "Pie Charts",
+        panels: [
             {
-                name: "BarChart",
-                component: BarChart
+                name: "Simple Pie Chart",
+                component: PieChart
+            }
+        ]
+    },
+    {
+        name: "Other Charts",
+        panels: [
+            {
+                name: "Axis",
+                component: Axis
             }
         ]
     }

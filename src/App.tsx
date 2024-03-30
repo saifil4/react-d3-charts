@@ -13,9 +13,9 @@ function App() {
       <TabPanels as="main" w='100%' h='100%'>
         {
           PanelData.map((group) => (
-            group.panels.map(({ name, component: Component }) => (
-              <TabPanel key={name}>
-                <Component />
+            group.panels.map(({ name, component: Panel }) => (
+              <TabPanel key={name} p="10">
+                <Panel />
               </TabPanel>
             ))
           ))
