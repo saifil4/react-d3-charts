@@ -10,11 +10,11 @@ const About: React.FC<Props> = (props) => {
 
     return (
         <Box>
-            <Heading as="h1">About</Heading>
+            <Heading as="h1">Why</Heading>
+            <br />
             <p>
-                While trying to explore different chart implementations
+                To create a approach that is easy to use, works well with existing React codebases and is highly customizable and flexible.
             </p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate repellat molestias assumenda delectus reiciendis excepturi iure doloribus, deserunt nam nostrum nobis eos in id at perferendis impedit aperiam eveniet pariatur!
         </Box>
     );
 };

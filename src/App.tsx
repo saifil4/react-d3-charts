@@ -8,9 +8,9 @@ import { PanelData } from './panel-data';
 function App() {
 
   return (
-    <Tabs variant='soft-rounded' display="flex" h="100%">
+    <Tabs variant='soft-rounded' display="grid" gridTemplateColumns="350px auto" height="100%">
       <SideBar />
-      <TabPanels as="main" w='100%' h='100%'>
+      <TabPanels as="main" minW="0" overflow="auto">
         {
           PanelData.map((group) => (
             group.panels.map(({ name, component: Panel }) => (

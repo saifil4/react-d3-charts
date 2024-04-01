@@ -1,5 +1,6 @@
 import React from 'react';
-import { Heading, Box } from '@chakra-ui/react';
+import { Heading, Box, Text, Divider } from '@chakra-ui/react';
+import { CopyBlock, dracula } from 'react-code-blocks';
 
 interface Props {
     // Define your component's props here
@@ -11,8 +12,18 @@ const GettingStarted: React.FC<Props> = (props) => {
     return (
         <Box>
             <Heading as="h1">Getting Started</Heading>
-           
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, nemo incidunt ipsam soluta non nisi? Voluptatum, consequuntur autem! Atque doloremque delectus maxime vero nobis optio facere laudantium hic iure consequuntur.
+            <br />
+            <Text>
+                Reactive Charts is a approach to build beatiful reactive visualization charts using D3, React and Framer Motion.
+                It contains wide variety of charts that are used in visualizations.
+            </Text>
+            <br />
+            <Heading fontSize="24px" as="h2">Installation</Heading>
+        <br />
+            <CopyBlock
+                language="bash"
+                text="npm install @reactive-charts/core"
+                theme={dracula} />
         </Box>
     );
 };

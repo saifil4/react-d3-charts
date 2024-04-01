@@ -1,7 +1,7 @@
 
 import * as d3 from "d3";
 import { motion } from "framer-motion";
-import { LineChartData, margin, width, height, MultiLineChartData } from "./data";
+import { margin, width, height, MultiLineChartData } from "./data";
 
 
 export function LineChart() {
@@ -10,8 +10,6 @@ export function LineChart() {
 
     const innerWidth = width - margin.left - margin.right,
         innerHeight = height - margin.top - margin.bottom;
-
-
 
     const yDomain = d3.extent(data.flat()) as Iterable<number>;
 
@@ -28,29 +26,63 @@ export function LineChart() {
         <svg width={width} height={height}>
             <g style={{ transform: "translate(20px, 6px)" }}>
                 <g style={{ transform: `translate(0px, ${innerHeight}px)` }}>
-                    <path stroke={color} strokeWidth={1} opacity="0.4" d={`M0,${0}L${innerWidth},${0}`} />
+                    <path
+                        stroke={color}
+                        strokeWidth={1}
+                        opacity="0.4"
+                        d={`M0,${0}L${innerWidth},${0}`} />
                     <g>
-                        {
-                            xTicks.map((d, i) => (
-                                <>
-                                    {/* <line key={i} y1={0} y2={5} x1={x(d)} x2={x(d)} stroke={color} /> */}
-                                    <text style={{ fontSize: "10px" }} key={i} y={0} x={x(d)} dy="20" textAnchor='middle'>  {d} </text>
-                                    <line key={i} y1={0} y2={-innerHeight} x1={x(d)} x2={x(d)} stroke={color} opacity="0.2" />
-                                </>
-                            ))}
+                        {xTicks.map((d, i) => (
+                            <>
+                                <text
+                                    key={i}
+                                    style={{ fontSize: "10px" }}
+                                    y={0}
+                                    x={x(d)}
+                                    dy="20"
+                                    textAnchor='middle'>
+                                    {d}
+                                </text>
+                                <line
+                                    key={i}
+                                    y1={0}
+                                    y2={-innerHeight}
+                                    x1={x(d)}
+                                    x2={x(d)}
+                                    stroke={color}
+                                    opacity="0.2" />
+                            </>
+                        ))}
                     </g>
                 </g>
                 <g>
-                    <path stroke={color} strokeWidth={1} opacity="0.4" d={`M0,${innerHeight}L${0},${0}`} />
+                    <path
+                        stroke={color}
+                        strokeWidth={1}
+                        opacity="0.4"
+                        d={`M0,${innerHeight}L${0},${0}`} />
                     <g>
-                        {
-                            yTicks.map((d, i) => (
-                                <>
-                                    {/* <line key={i} y1={y(d)} y2={y(d)} x1={-5} x2={0} stroke={color} /> */}
-                                    <text style={{ fontSize: "10px" }} key={d} y={y(d)} x={0} dx="-10" textAnchor='middle' alignmentBaseline="middle">  {i} </text>
-                                    <line key={i} y1={y(d)} y2={y(d)} x1={innerWidth} x2={0} stroke={color} opacity="0.2" />
-                                </>
-                            ))}
+                        {yTicks.map((d, i) => (
+                            <>
+                                <text
+                                    style={{ fontSize: "10px" }}
+                                    key={d} y={y(d)}
+                                    x={0}
+                                    dx="-10"
+                                    textAnchor='middle'
+                                    alignmentBaseline="middle">
+                                    {i}
+                                </text>
+                                <line
+                                    key={i}
+                                    y1={y(d)}
+                                    y2={y(d)}
+                                    x1={innerWidth}
+                                    x2={0}
+                                    stroke={color}
+                                    opacity="0.2" />
+                            </>
+                        ))}
                     </g>
                 </g>
                 {
@@ -74,7 +106,7 @@ export function LineChart() {
                                 <motion.circle
                                     initial={{ r: 0 }}
                                     animate={{ r: 5 }}
-                                    transition={{ duration: 1, delay: i / 10 }}
+                                    transition={{ duration: 1, delay: i * 1 / d.length }}
                                     key={i}
                                     fill="#ff638490"
                                     stroke="#ff6384"

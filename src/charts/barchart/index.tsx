@@ -1,5 +1,4 @@
 import * as d3 from "d3";
-import { Axis } from "../../components/Axis";
 import { motion } from "framer-motion";
 import { BarChartData, width, height, margin } from "./data";
 
@@ -35,7 +34,7 @@ export function BarChart() {
                         </g>
                     ))
                 }
-                <Axis
+                {/* <Axis
                     axis={d3.axisLeft(y)}
                     axisPos="axisLeft"
                     margin={margin}
@@ -44,7 +43,7 @@ export function BarChart() {
                     axis={d3.axisBottom(xBand)}
                     axisPos="axisBottom"
                     margin={margin}
-                    height={innerHeight} />
+                    height={innerHeight} /> */}
             </g>
         </svg>
     );

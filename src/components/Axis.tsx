@@ -1,49 +1,31 @@
-import * as d3 from "d3";
-import { useEffect, useRef } from "react";
+import React from 'react';
 
-export function Axis({
-    axis,
-    axisPos,
-    margin,
-    height
-}:
-    {
-        axis: d3.Axis<d3.NumberValue>,
-        axisPos: 'axisTop' | 'axisRight' | 'axisBottom' | 'axisLeft'
-        margin: {
-            left: number,
-            right: number,
-            top: number,
-            bottom: number,
-        }
-        height: number
-    }
-) {
-    const axisRef = useRef<SVGGElement>(null);
-
-    const { left, right, top, bottom } = margin;
-
-    const transformPostions = {
-        axisLeft: `translate(0, 0)`,
-        axisRight: `translate(${right}, 0)`,
-        axisTop: `translate(0, ${height - top})`,
-        axisBottom: `translate(0, ${height})`
-    }
-
-    const t = d3.transition()
-        .duration(750)
-        .delay(100)
-        .ease(d3.easeExpInOut);
-
-    useEffect(() => {
-        if (axisRef.current) {
-            d3.select(axisRef.current)
-                // .transition(t)
-                .attr("transform", transformPostions[axisPos])
-                .call(axis)
-
-        }
-    }, [axisRef]);
-
-    return <g ref={axisRef} />
+interface Props {
+    color: string;
+    xTicks: number[];
+    innerHeight: number;
+    innerWidth: number;
+    x: any;
 }
+
+const Axis: React.FC<Props> = ({ color, xTicks, innerHeight, innerWidth, x }) => {
+    // Implement your component logic here
+
+    return (
+        <g style={{ transform: `translate(0px, ${innerHeight}px)` }}>
+            <path stroke={color} strokeWidth={1} opacity="0.4" d={`M0,${0}L${innerWidth},${0}`} />
+            <g>
+                {
+                    xTicks.map((d, i) => (
+                        <>
+                            {/* <line key={i} y1={0} y2={5} x1={x(d)} x2={x(d)} stroke={color} /> */}
+                            <text style={{ fontSize: "10px" }} key={i} y={0} x={x(d)} dy="20" textAnchor='middle'>  {d} </text>
+                            <line key={i} y1={0} y2={-innerHeight} x1={x(d)} x2={x(d)} stroke={color} opacity="0.2" />
+                        </>
+                    ))}
+            </g>
+        </g>
+    );
+};
+
+export default Axis;

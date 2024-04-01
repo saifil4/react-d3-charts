@@ -1,6 +1,8 @@
 import React from 'react';
 import { Heading, Box, Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
 import { LineChart } from '../charts/linechart';
+import { CopyBlock, dracula } from 'react-code-blocks';
+import * as CodeLineChart from '../charts/linechart/index.tsx?raw';
 
 interface Props {
     // Define your component's props here
@@ -20,11 +22,18 @@ const LineChartPanel: React.FC<Props> = (props) => {
                 </TabList>
                 <TabPanels>
                     <TabPanel>
-                    <br />
+                        <br />
                         <LineChart />
                     </TabPanel>
-                    <TabPanel>
-                        <code></code>
+                    <TabPanel w="100%">
+                        <CopyBlock
+                            text={CodeLineChart.default}
+                            language="javascript"
+                            showLineNumbers={true}
+                            wrapLongLines={true}
+                            codeContainerStyle={{ overflow: 'auto' }}
+                            theme={dracula}
+                        />
                     </TabPanel>
                 </TabPanels>
             </Tabs>

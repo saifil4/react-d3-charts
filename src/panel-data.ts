@@ -2,7 +2,7 @@ import About from "./panels/About";
 import GettingStarted from "./panels/GettingStarted";
 import LineChartPanel from "./panels/LineChartPanel";
 import PieChart from "./charts/piechart";
-import Axis from "./charts/axis";
+import { BarChart } from "./charts/barchart";
 
 type Panel = {
     name: string,
@@ -19,7 +19,7 @@ export const PanelData: Group[] = [
         name: null,
         panels: [
             {
-                name: "About",
+                name: "Why",
                 component: About
             },
             {
@@ -39,20 +39,20 @@ export const PanelData: Group[] = [
         ]
     },
     {
+        name: "Bar Charts",
+        panels: [
+            {
+                name: "Simple Bar Chart",
+                component: BarChart
+            }
+        ]
+    },
+    {
         name: "Pie Charts",
         panels: [
             {
                 name: "Simple Pie Chart",
                 component: PieChart
-            }
-        ]
-    },
-    {
-        name: "Other Charts",
-        panels: [
-            {
-                name: "Axis",
-                component: Axis
             }
         ]
     }
