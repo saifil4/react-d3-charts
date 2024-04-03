@@ -1,11 +1,8 @@
 import React from 'react';
 import { Heading, Box } from '@chakra-ui/react';
 
-interface Props {
-    // Define your component's props here
-}
 
-const About: React.FC<Props> = (props) => {
+const About: React.FC = () => {
     // Implement your component logic here
 
     return (

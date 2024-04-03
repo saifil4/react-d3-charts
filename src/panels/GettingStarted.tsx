@@ -1,12 +1,10 @@
 import React from 'react';
-import { Heading, Box, Text, Divider } from '@chakra-ui/react';
+import { Heading, Box, Text } from '@chakra-ui/react';
 import { CopyBlock, dracula } from 'react-code-blocks';
 
-interface Props {
-    // Define your component's props here
-}
 
-const GettingStarted: React.FC<Props> = (props) => {
+
+const GettingStarted: React.FC = () => {
     // Implement your component logic here
 
     return (

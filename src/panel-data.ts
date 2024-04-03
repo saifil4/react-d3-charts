@@ -1,9 +1,7 @@
-import About from "./panels/About";
-import GettingStarted from "./panels/GettingStarted";
 import { SimpleLineChart } from "./charts/linechart/SimpleLineChart";
 import { LineChartWithHover } from "./charts/linechart/LineChartWithHover";
 import { MultiLineChart } from "./charts/linechart/MultiLineChart";
-import PieChart from "./charts/piechart";
+// import PieChart from "./charts/piechart";
 import { BarChart } from "./charts/barchart";
 
 type Panel = {
@@ -49,14 +47,14 @@ export const PanelData: Group[] = [
             }
         ]
     },
-    {
-        name: "Pie Charts",
-        panels: [
-            {
-                heading: "Simple Pie Chart",
-                component: PieChart,
-                code: `hello`
-            }
-        ]
-    }
+    // {
+    //     name: "Pie Charts",
+    //     panels: [
+    //         {
+    //             heading: "Simple Pie Chart",
+    //             component: PieChart,
+    //             code: `hello`
+    //         }
+    //     ]
+    // }
 ]

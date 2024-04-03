@@ -39,7 +39,7 @@ export function MultiLineChart() {
     const xTicks = x.ticks(10)
     const yTicks = y.ticks(10)
 
-    const line = d3.line((d, i) => x(i), y).curve(d3.curveMonotoneX);
+    const line = d3.line((_, i) => x(i), y).curve(d3.curveMonotoneX);
 
     return (
         <svg width={width} height={height}>
@@ -56,14 +56,14 @@ export function MultiLineChart() {
                 <g>
                     <AxisPath d={`M0,0L0,${innerHeight}`} />
                     <g>
-                        {yTicks.map((d, i) => (<>
+                        {yTicks.map((d) => (<>
                             <Text dx={-10} x={0} y={y(d)}> {d} </Text>
                             <Line y1={y(d)} y2={y(d)} x1={innerWidth} x2={0} />
                         </>))}
                     </g>
                 </g>
                 <g>
-                    {data.map((d, i) => (
+                    {data.map((d) => (
                         <>
                             <motion.path
                                 initial={{ pathLength: 0 }}
@@ -74,7 +74,7 @@ export function MultiLineChart() {
                                 strokeWidth={2}
                                 d={line(d) || undefined}
                             />
-                            {d.map((c, i) => (
+                            {d.map((c: number, i: number) => (
                                 <motion.circle
                                     initial={{ r: 0 }}
                                     animate={{ r: 5 }}
