@@ -1,12 +1,15 @@
 import About from "./panels/About";
 import GettingStarted from "./panels/GettingStarted";
-import LineChartPanel from "./panels/LineChartPanel";
+import { SimpleLineChart } from "./charts/linechart/SimpleLineChart";
+import { LineChartWithHover } from "./charts/linechart/LineChartWithHover";
+import { MultiLineChart } from "./charts/linechart/MultiLineChart";
 import PieChart from "./charts/piechart";
 import { BarChart } from "./charts/barchart";
 
 type Panel = {
-    name: string,
+    heading: string;
     component: React.FC<any>,
+    code: string;
 }
 
 type Group = {
@@ -16,25 +19,23 @@ type Group = {
 
 export const PanelData: Group[] = [
     {
-        name: null,
-        panels: [
-            {
-                name: "Why",
-                component: About
-            },
-            {
-                name: "Getting Started",
-                component: GettingStarted
-            }
-        ]
-    },
-
-    {
         name: "Line Charts",
         panels: [
             {
-                name: "Simple Line Chart",
-                component: LineChartPanel
+                heading: "Simple Line Chart",
+                component: SimpleLineChart,
+                code: `hello`
+               
+            },
+            {
+                heading: "Line Chart with Hover",
+                component: LineChartWithHover,
+                code: `hello`
+            },
+            {
+                heading: "Multi Line Chart",
+                component: MultiLineChart,
+                code: `hello`
             }
         ]
     },
@@ -42,8 +43,9 @@ export const PanelData: Group[] = [
         name: "Bar Charts",
         panels: [
             {
-                name: "Simple Bar Chart",
-                component: BarChart
+                heading: "Simple Bar Chart",
+                component: BarChart,
+                code: `hello`
             }
         ]
     },
@@ -51,8 +53,9 @@ export const PanelData: Group[] = [
         name: "Pie Charts",
         panels: [
             {
-                name: "Simple Pie Chart",
-                component: PieChart
+                heading: "Simple Pie Chart",
+                component: PieChart,
+                code: `hello`
             }
         ]
     }

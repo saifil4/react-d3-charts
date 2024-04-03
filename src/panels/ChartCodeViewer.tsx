@@ -1,19 +1,17 @@
 import React from 'react';
 import { Heading, Box, Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
-import { LineChart } from '../charts/linechart';
 import { CopyBlock, dracula } from 'react-code-blocks';
-import * as CodeLineChart from '../charts/linechart/index.tsx?raw';
 
 interface Props {
-    // Define your component's props here
+    heading: string;
+    code: string;
+    chart: React.FC<any>;
 }
 
-const LineChartPanel: React.FC<Props> = (props) => {
-
-
+const ChartCodeViewer: React.FC<Props> = ({ chart: Chart, code, heading }) => {
     return (
         <Box>
-            <Heading as="h1">Simple Line Chart</Heading>
+            <Heading as="h1">{heading}</Heading>
             <br />
             <Tabs>
                 <TabList>
@@ -23,12 +21,12 @@ const LineChartPanel: React.FC<Props> = (props) => {
                 <TabPanels>
                     <TabPanel>
                         <br />
-                        <LineChart />
+                        <Chart />
                     </TabPanel>
                     <TabPanel w="100%">
                         <CopyBlock
-                            text={CodeLineChart.default}
-                            language="javascript"
+                            text={code}
+                            language="tsx"
                             showLineNumbers={true}
                             wrapLongLines={true}
                             codeContainerStyle={{ overflow: 'auto' }}
@@ -41,4 +39,4 @@ const LineChartPanel: React.FC<Props> = (props) => {
     );
 };
 
-export default LineChartPanel;
+export default ChartCodeViewer;

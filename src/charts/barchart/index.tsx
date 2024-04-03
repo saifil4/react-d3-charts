@@ -34,16 +34,6 @@ export function BarChart() {
                         </g>
                     ))
                 }
-                {/* <Axis
-                    axis={d3.axisLeft(y)}
-                    axisPos="axisLeft"
-                    margin={margin}
-                    height={innerHeight} />
-                <Axis
-                    axis={d3.axisBottom(xBand)}
-                    axisPos="axisBottom"
-                    margin={margin}
-                    height={innerHeight} /> */}
             </g>
         </svg>
     );
