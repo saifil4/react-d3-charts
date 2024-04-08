@@ -1,6 +1,6 @@
 import React from 'react';
 import { Heading, Box, Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
-import { CopyBlock, dracula } from 'react-code-blocks';
+import CodeHighlighter from './CodeHighlighter';
 
 interface Props {
     heading: string;
@@ -24,14 +24,7 @@ const ChartCodeViewer: React.FC<Props> = ({ chart: Chart, code, heading }) => {
                         <Chart />
                     </TabPanel>
                     <TabPanel w="100%">
-                        <CopyBlock
-                            text={code}
-                            language="tsx"
-                            showLineNumbers={true}
-                            wrapLongLines={true}
-                            codeContainerStyle={{ overflow: 'auto' }}
-                            theme={dracula}
-                        />
+                        <CodeHighlighter code={code} />
                     </TabPanel>
                 </TabPanels>
             </Tabs>

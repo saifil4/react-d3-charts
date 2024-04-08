@@ -2,20 +2,20 @@ import './App.css';
 import { SideBar } from './layouts/sidebar';
 import { Tabs, TabPanels, TabPanel } from '@chakra-ui/react';
 import { PanelData } from './panel-data';
-import ChartCodeViewer from './panels/ChartCodeViewer';
-import About from './panels/About';
-import GettingStarted from './panels/GettingStarted';
+import ChartCodeViewer from './components/ChartCodeViewer';
+import About from './sections/about';
+import GettingStarted from './sections/GettingStarted';
 
 function App() {
 
   return (
-    <Tabs variant='soft-rounded' display="grid" gridTemplateColumns="350px auto" height="100%">
+    <Tabs variant='soft-rounded' display="grid" gridTemplateColumns="300px auto" height="100%">
       <SideBar />
       <TabPanels as="main" minW="0" overflow="auto">
-        <TabPanel key="about">
+        <TabPanel p="10" key="about">
           <About />
         </TabPanel>
-        <TabPanel key="getting-started">
+        <TabPanel p="10" key="getting-started">
           <GettingStarted />
         </TabPanel>
         {
