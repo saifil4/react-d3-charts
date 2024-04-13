@@ -15,20 +15,15 @@ const About: React.FC = () => {
             <Heading as="h1">About</Heading>
             <br />
             <p>
-                Reactive Charts is set of example charts created using D3 and React. The aim of this project is to create a declarative approach to create D3 charts.
+                Reactive Charts is an collection of examples for visualizations, created using D3 and React. The aim of this project is to create a declarative approach to create D3 charts.
             </p>
             <br />
-            <Heading fontSize="24px" marginBottom="0.5rem" as="h1">Why</Heading>
+            <Heading fontSize="24px" marginBottom="0.5rem" as="h2">Why</Heading>
             <Text>
-                Below is a basic example of a line chart and how normally people try to write the D3 code
+                To asnswer this lets take an example.
+                Below is a basic example of a line chart and how normally people try to write the D3 code in react.
             </Text>
             <br />
-            <Text>
-                The code is less declarative and more imperative. It doesnt look like React code.
-                Also direct dom manupulation is done which is not recommended in React.
-                It is also difficult to create reusable components.
-                That is why we should try and create a declarative approach to create D3 charts.
-            </Text> 
             <Tabs>
                 <TabList>
                     <Tab>Preview</Tab>
@@ -38,7 +33,9 @@ const About: React.FC = () => {
                 <TabPanels>
                     <TabPanel>
                         <ExampleLineChart />
-                        Source: <a href="https://d3-graph-gallery.com/graph/line_basic.html">D3 Graph Gallery</a>
+                        <Text textAlign="center">
+                            Source: <a href="https://d3-graph-gallery.com/graph/line_basic.html">D3 Graph Gallery</a>
+                        </Text>
                     </TabPanel>
                     <TabPanel>
                         <VStack>
@@ -48,12 +45,16 @@ const About: React.FC = () => {
                 </TabPanels>
             </Tabs>
             <Text>
+                We often make this mistake of writing D3 code in React components. We directly use dom manupulation to create the chart.
+                The code is less declarative and more imperative. It is also difficult to create reusable components.
                 That is why we should try and create a declarative approach to create D3 charts.
-                Below is an example of how we can create a declarative approach to create D3 charts.
-
-                We are using svg elements and d3 to create the chart. D3 functions are used to create the scales and axis.
-                The chart is created using the data passed to the component.
-                It is declarative and easy to understand and we can easily create reusable components.
+            </Text>
+            <br />
+            <Heading fontSize="24px" marginBottom="0.5rem" as="h2">
+                The Reactive Approach
+            </Heading>
+            <Text>
+                Below is the same chart but instead of dom manupulation we are using a declarative approach to create the chart.
             </Text>
             <Tabs>
                 <TabList>
@@ -64,7 +65,6 @@ const About: React.FC = () => {
                 <TabPanels>
                     <TabPanel>
                         <ExampleLineChartNew />
-                        Source: <a href="https://d3-graph-gallery.com/graph/line_basic.html">D3 Graph Gallery</a>
                     </TabPanel>
                     <TabPanel>
                         <VStack>
@@ -73,7 +73,9 @@ const About: React.FC = () => {
                     </TabPanel>
                 </TabPanels>
             </Tabs>
-
+            <Text>
+                If you take a look at the code, It is much simpler to understand and easy to identify and create and create reusable components.
+            </Text>
         </Box>
     );
 };

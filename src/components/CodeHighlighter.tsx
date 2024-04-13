@@ -9,8 +9,10 @@ type CodeHighlighterProps = {
 const CodeHighlighter: React.FC<CodeHighlighterProps> = ({ code }) => {
     const codeString = code;
     return (
-        <div style={{width: "100%"}}>
-            <SyntaxHighlighter language="javascript"  style={dracula}>
+        <div style={{ width: "100%" }}>
+            <SyntaxHighlighter
+                customStyle={{ borderRadius: "10px" }}
+                showLineNumbers={true} language="typescript" style={dracula}>
                 {codeString}
             </SyntaxHighlighter>
         </div>

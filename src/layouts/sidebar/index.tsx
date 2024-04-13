@@ -5,9 +5,13 @@ export function SideBar() {
 
     return (
         <TabList
-            as="nav" 
-            display="flex" 
-            flexDirection="column" w='100%' h='100%' bg='gray.100' p="7">
+            as="nav"
+            display="flex"
+            flexDirection="column"
+            w='100%'
+            h='100%'
+            p="7"
+        >
             <Heading as="h1" fontSize="30px">Reactive Charts</Heading>
             <br />
             <Tab justifyContent="left" key="about">About</Tab>

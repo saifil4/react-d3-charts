@@ -9,7 +9,7 @@ type margin = {
     left: number
 }
 
-const width: number = 460, height: number = 400
+const width: number = 800, height: number = 400
 
 const margin: margin = {
     top: 10,
@@ -67,7 +67,7 @@ function Chart({ data }: { data: DataType[] }) {
 
     const line = d3.line<DataType>().x((d) => x(d?.date as Date)).y((d) => y(d.value));
 
-    console.log(d3.axisLeft(y));
+    const format = d3.format(",");
 
     return (
         <svg width={width} height={height}>
@@ -85,7 +85,7 @@ function Chart({ data }: { data: DataType[] }) {
                     <AxisPath d={`M0,0L0,${innerHeight}`} />
                     <g>
                         {yTicks.map((d) => (<>
-                            <Text textAnchor="end" dx={-10} x={0} y={y(d)}> {d.toString()} </Text>
+                            <Text textAnchor="end" dx={-10} x={0} y={y(d)}> {format(d)} </Text>
                             <Line y1={y(d)} y2={y(d)} x1={0} x2={-5} />
                         </>))}
                     </g>
@@ -123,3 +123,4 @@ const AxisPath = (props: React.SVGAttributes<SVGPathElement>) =>
         stroke="black"
         strokeWidth={1}
         {...props} />
+

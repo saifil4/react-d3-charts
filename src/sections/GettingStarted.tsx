@@ -1,7 +1,6 @@
 import React from 'react';
 import { Heading, Box, Text } from '@chakra-ui/react';
-import { CopyBlock, dracula } from 'react-code-blocks';
-
+import CodeHighlighter from '../components/CodeHighlighter';
 
 
 const GettingStarted: React.FC = () => {
@@ -17,11 +16,15 @@ const GettingStarted: React.FC = () => {
             </Text>
             <br />
             <Heading fontSize="24px" as="h2">Installation</Heading>
-        <br />
-            <CopyBlock
-                language="bash"
-                text="npm install @reactive-charts/core"
-                theme={dracula} />
+            <br />
+            <CodeHighlighter code={`npm install d3 @types/d3 framer-motion`} />
+            <br />
+            <br />  
+            {/* <Heading fontSize="24px" as="h2">Usage</Heading>
+            <br />
+            <Text>
+                All the charts are exported from the package and can be used as shown below.
+            </Text> */}
         </Box>
     );
 };

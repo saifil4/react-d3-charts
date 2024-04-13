@@ -1,8 +1,11 @@
 import { SimpleLineChart } from "./charts/linechart/SimpleLineChart";
 import { LineChartWithHover } from "./charts/linechart/LineChartWithHover";
 import { MultiLineChart } from "./charts/linechart/MultiLineChart";
-// import PieChart from "./charts/piechart";
 import { BarChart } from "./charts/barchart";
+import * as SimpleLineChartCode from "./charts/linechart/SimpleLineChart?raw";
+import * as MultiLineChartCode from "./charts/linechart/MultiLineChart?raw";
+import * as LineChartWithHoverCode from "./charts/linechart/LineChartWithHover?raw";
+import * as BarChartCode from "./charts/barchart?raw";
 
 type Panel = {
     heading: string;
@@ -22,18 +25,18 @@ export const PanelData: Group[] = [
             {
                 heading: "Simple Line Chart",
                 component: SimpleLineChart,
-                code: `hello`
+                code: SimpleLineChartCode.default
                
             },
             {
                 heading: "Line Chart with Hover",
                 component: LineChartWithHover,
-                code: `hello`
+                code: LineChartWithHoverCode.default
             },
             {
                 heading: "Multi Line Chart",
                 component: MultiLineChart,
-                code: `hello`
+                code: MultiLineChartCode.default
             }
         ]
     },
@@ -43,18 +46,8 @@ export const PanelData: Group[] = [
             {
                 heading: "Simple Bar Chart",
                 component: BarChart,
-                code: `hello`
+                code: BarChartCode.default
             }
         ]
     },
-    // {
-    //     name: "Pie Charts",
-    //     panels: [
-    //         {
-    //             heading: "Simple Pie Chart",
-    //             component: PieChart,
-    //             code: `hello`
-    //         }
-    //     ]
-    // }
 ]
