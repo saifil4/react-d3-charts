@@ -20,7 +20,7 @@ const About: React.FC = () => {
             <br />
             <Heading fontSize="24px" marginBottom="0.5rem" as="h2">Why</Heading>
             <Text>
-                To asnswer this lets take an example.
+                To answer this lets take an example.
                 Below is a basic example of a line chart and how normally people try to write the D3 code in react.
             </Text>
             <br />
