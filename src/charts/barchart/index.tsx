@@ -113,7 +113,7 @@ export function BarChart() {
                                 x={x(d.Country)}
                                 width={x.bandwidth()} fill="#69b3a2" />
 
-                            <text x={x(d.Country)} y={y(d.Value) - 5}>hello</text>
+                            {/* <text x={x(d.Country)} y={y(d.Value) - 5}>hello</text> */}
                         </g>
                     ))
                 }
