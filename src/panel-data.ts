@@ -6,6 +6,8 @@ import * as SimpleLineChartCode from "./charts/linechart/SimpleLineChart?raw";
 import * as MultiLineChartCode from "./charts/linechart/MultiLineChart?raw";
 import * as LineChartWithHoverCode from "./charts/linechart/LineChartWithHover?raw";
 import * as BarChartCode from "./charts/barchart?raw";
+import AxisDemo from "./charts/Axis";
+import SpiderChart from "./charts/spider-chart";
 
 type Panel = {
     heading: string;
@@ -47,6 +49,26 @@ export const PanelData: Group[] = [
                 heading: "Simple Bar Chart",
                 component: BarChart,
                 code: BarChartCode.default
+            }
+    ]
+    },
+    {
+        name: "Spider Chart",
+        panels: [
+            {
+                heading: "Simple Spider Chart",
+                component: SpiderChart,
+                code: ''
+            }
+        ]
+    },
+    {
+        name: "Axis",
+        panels: [
+            {
+                heading: "Axis Examples",
+                component: AxisDemo,
+                code: ''
             }
         ]
     },

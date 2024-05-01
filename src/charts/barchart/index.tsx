@@ -77,8 +77,6 @@ export function BarChart() {
     const y = d3.scaleLinear(yDomain, [innerHeight, 0]);
     const x = d3.scaleBand(data.map(d => d.Country), [0, innerWidth]).padding(0.1);
 
-    
-
     const xTicks = x.domain()
     const yTicks = y.ticks(10)
 
@@ -112,8 +110,6 @@ export function BarChart() {
                                 transition={{ duration: 1 }}
                                 x={x(d.Country)}
                                 width={x.bandwidth()} fill="#69b3a2" />
-
-                            {/* <text x={x(d.Country)} y={y(d.Value) - 5}>hello</text> */}
                         </g>
                     ))
                 }
