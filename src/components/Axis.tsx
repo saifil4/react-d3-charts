@@ -41,3 +41,4 @@ const AxisPath = (props: React.SVGAttributes<SVGPathElement>) =>
         strokeWidth={1}
         opacity={0.2}
         {...props} />
+        

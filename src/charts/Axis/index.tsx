@@ -1,6 +1,6 @@
 
 import * as d3 from "d3";
-import { Axis } from "../../components/Axis";
+import { Axis } from "components/Axis";
 
 type margin = {
     top: number,
