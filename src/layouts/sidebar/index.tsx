@@ -1,7 +1,11 @@
 import { TabList, Tab, Heading } from '@chakra-ui/react';
 import { PanelData } from '../../panel-data';
 
-export function SideBar() {
+type SideBarProps = {
+    handleClick: (panel: string) => void
+}
+
+const SideBar: React.FC<SideBarProps> = ({ handleClick }) => {
 
     return (
         <TabList
@@ -23,7 +27,7 @@ export function SideBar() {
                         {group.name && <Heading textTransform="uppercase" textColor="navy" fontSize="small" mb="2" pl="4" as="h2">{group.name}</Heading>}
                         {
                             group.panels.map((panel) => (
-                                <Tab justifyContent="left" key={panel.heading}>{panel.heading}</Tab>
+                                <Tab onClick={() => handleClick(panel.heading)} justifyContent="left" key={panel.heading}>{panel.heading}</Tab>
                             ))
 
                         }
@@ -33,3 +37,5 @@ export function SideBar() {
         </TabList>
     )
 }
+
+export default SideBar

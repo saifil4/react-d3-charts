@@ -1,18 +1,25 @@
-import { SimpleLineChart } from "./charts/linechart/SimpleLineChart";
-import { LineChartWithHover } from "./charts/linechart/LineChartWithHover";
-import { MultiLineChart } from "./charts/linechart/MultiLineChart";
+
+import { LineChartWithHover } from "charts/linechart/LineChartWithHover";
+import { MultiLineChart } from "charts/linechart/MultiLineChart";
 import { BarChart } from "./charts/barchart";
-import * as SimpleLineChartCode from "./charts/linechart/SimpleLineChart?raw";
-import * as MultiLineChartCode from "./charts/linechart/MultiLineChart?raw";
-import * as LineChartWithHoverCode from "./charts/linechart/LineChartWithHover?raw";
-import * as BarChartCode from "./charts/barchart?raw";
+
+import * as MultiLineChartCode from "charts/linechart/MultiLineChart?raw";
+import * as LineChartWithHoverCode from "charts/linechart/LineChartWithHover?raw";
+import * as BarChartCode from "charts/barchart?raw";
 import AxisDemo from "./charts/Axis";
 import SpiderChart from "./charts/spider-chart";
+
+
+//Line Charts
+import { SimpleLineChart } from "charts/linechart/simple-line-chart";
+import * as SimpleLineChartCode from "charts/linechart//simple-line-chart?raw";
+import * as SimpleLineChartConfig from "charts/linechart/simple-line-chart/config?raw";
+import * as AxisCode from "components/Axis?raw";
 
 type Panel = {
     heading: string;
     component: React.FC<any>,
-    code: string;
+    files: { code: string, name: string }[],
 }
 
 type Group = {
@@ -27,18 +34,28 @@ export const PanelData: Group[] = [
             {
                 heading: "Simple Line Chart",
                 component: SimpleLineChart,
-                code: SimpleLineChartCode.default
-               
+                files: [
+                    { code: SimpleLineChartCode.default, name: "SimpleLineChart.tsx" },
+                    { code: AxisCode.default, name: "Axis.tsx" },
+                    { code: SimpleLineChartConfig.default, name: "Config.tsx" },
+                ],
+
             },
             {
                 heading: "Line Chart with Hover",
                 component: LineChartWithHover,
-                code: LineChartWithHoverCode.default
+                files: [
+                    { code: LineChartWithHoverCode.default, name: "SimpleLineChart.tsx" },
+                    { code: LineChartWithHoverCode.default, name: "SimpleLineChart.tsx" },
+                ],
             },
             {
                 heading: "Multi Line Chart",
                 component: MultiLineChart,
-                code: MultiLineChartCode.default
+                files: [
+                    { code: MultiLineChartCode.default, name: "SimpleLineChart.tsx" },
+                    { code: MultiLineChartCode.default, name: "SimpleLineChart.tsx" },
+                ],
             }
         ]
     },
@@ -48,9 +65,12 @@ export const PanelData: Group[] = [
             {
                 heading: "Simple Bar Chart",
                 component: BarChart,
-                code: BarChartCode.default
+                files: [
+                    { code: BarChartCode.default, name: "SimpleLineChart.tsx" },
+                    { code: BarChartCode.default, name: "SimpleLineChart.tsx" },
+                ],
             }
-    ]
+        ]
     },
     {
         name: "Spider Chart",
@@ -58,7 +78,10 @@ export const PanelData: Group[] = [
             {
                 heading: "Simple Spider Chart",
                 component: SpiderChart,
-                code: ''
+                files: [
+                    { code: SimpleLineChartCode.default, name: "SimpleLineChart.tsx" },
+                    { code: SimpleLineChartCode.default, name: "SimpleLineChart.tsx" },
+                ],
             }
         ]
     },
@@ -68,7 +91,10 @@ export const PanelData: Group[] = [
             {
                 heading: "Axis Examples",
                 component: AxisDemo,
-                code: ''
+                files: [
+                    { code: SimpleLineChartCode.default, name: "SimpleLineChart.tsx" },
+                    { code: SimpleLineChartCode.default, name: "SimpleLineChart.tsx" },
+                ],
             }
         ]
     },

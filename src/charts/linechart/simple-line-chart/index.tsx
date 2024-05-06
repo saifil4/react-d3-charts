@@ -1,23 +1,8 @@
 
 import * as d3 from "d3";
 import { motion } from "framer-motion";
-
-type margin = {
-    top: number,
-    right: number,
-    bottom: number,
-    left: number
-}
-
-const width: number = 800, height: number = 400
-
-const margin: margin = {
-    top: 50,
-    right: 50,
-    bottom: 50,
-    left: 50
-}
-
+import { margin, height, width } from "./config";
+import { Axis } from "components/Axis";
 
 export function SimpleLineChart() {
 
@@ -39,24 +24,25 @@ export function SimpleLineChart() {
     return (
         <svg width={width} height={height}>
             <g style={{ transform: `translate(${margin.left}px, ${margin.top}px)` }}>
-                <g style={{ transform: `translate(0px, ${innerHeight}px)` }}>
-                    <AxisPath d={`M0,0L${innerWidth},0`} />
-                    <g>
-                        {xTicks.map((d) => (<>
-                            <Text dy={15} x={x(d)} y={0}> {d} </Text>
-                            <Line y1={0} y2={-innerHeight} x1={x(d)} x2={x(d)} />
-                        </>))}
-                    </g>
-                </g>
-                <g>
-                    <AxisPath d={`M0,0L0,${innerHeight}`} />
-                    <g>
-                        {yTicks.map((d) => (<>
-                            <Text dx={-10} x={0} y={y(d)}> {d} </Text>
-                            <Line y1={y(d)} y2={y(d)} x1={innerWidth} x2={0} />
-                        </>))}
-                    </g>
-                </g>
+
+                <Axis
+                    orientation="bottom"
+                    width={innerWidth}
+                    height={innerHeight}>
+                    {xTicks.map((d) => (<>
+                        <Text dy={15} x={x(d)} y={0}> {d} </Text>
+                        <Line y1={0} y2={-innerHeight} x1={x(d)} x2={x(d)} />
+                    </>))}
+                </Axis>
+                <Axis
+                    orientation="left"
+                    width={innerWidth}
+                    height={innerHeight}>
+                    {yTicks.map((d) => (<>
+                        <Text dx={-10} x={0} y={y(d)}> {d} </Text>
+                        <Line y1={y(d)} y2={y(d)} x1={innerWidth} x2={0} />
+                    </>))}
+                </Axis>
                 <g>
                     <motion.path
                         initial={{ pathLength: 0 }}
@@ -84,6 +70,7 @@ export function SimpleLineChart() {
     );
 }
 
+
 const Text = (props: React.SVGAttributes<SVGTextElement>) =>
     <text
         style={{ fontSize: "10px" }}
@@ -102,9 +89,3 @@ const Line = (props: React.SVGAttributes<SVGLineElement>) =>
         {...props}
     />
 
-const AxisPath = (props: React.SVGAttributes<SVGPathElement>) =>
-    <path
-        stroke="black"
-        strokeWidth={1}
-        opacity={0.2}
-        {...props} />
