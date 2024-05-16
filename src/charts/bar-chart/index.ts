@@ -7,7 +7,7 @@ import { Group } from 'types/section.type';
 const barChartGroup: Group =
 {
     name: "Bar Charts",
-    panels: [
+    sections: [
         {
             heading: "Simple Bar Chart",
             component: SimpleBarChart,

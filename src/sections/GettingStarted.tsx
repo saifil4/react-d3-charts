@@ -1,6 +1,6 @@
 import React from 'react';
 import { Heading, Box, Text } from '@chakra-ui/react';
-import CodeHighlighter from '../components/CodeHighlighter';
+import CodeBlock from '../components/CodeBlock';
 
 
 const GettingStarted: React.FC = () => {
@@ -16,7 +16,7 @@ const GettingStarted: React.FC = () => {
             <br />
             <Heading fontSize="24px" as="h2">Installation</Heading>
             <br />
-            <CodeHighlighter code={`npm install d3 @types/d3 framer-motion`} />
+            <CodeBlock code={`npm install d3 @types/d3 framer-motion`} />
             <br />
             <br />  
             {/* <Heading fontSize="24px" as="h2">Usage</Heading>

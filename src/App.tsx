@@ -1,17 +1,15 @@
 import { useState } from 'react';
 import { Tabs, TabPanels, TabPanel } from '@chakra-ui/react';
-import { SectionData } from './sections/section-data';
-import ChartCodeViewer from 'components/ChartCodeViewer';
+import { sectionList } from './sections/section-list';
+import ChartSection from 'layouts/ChartSection';
 import GettingStarted from 'sections/GettingStarted';
-import SideBar from 'layouts/sidebar';
+import SideBar from 'layouts/SideBar';
 
 function App() {
 
   const [selectedPanel, setSelectedPanel] = useState<string>('getting-started');
 
-  const handleClick = (panel: string) => {
-    setSelectedPanel(panel);
-  }
+  const handleClick = (panel: string) => setSelectedPanel(panel);
 
   return (
     <Tabs variant='soft-rounded' display="grid" gridTemplateColumns="300px auto" height="100%">
@@ -21,11 +19,11 @@ function App() {
           <GettingStarted />
         </TabPanel>
         {
-          SectionData.map((group) => (
-            group.panels.map(({ heading, component, files }) => (
+          sectionList.map((group) => (
+            group.sections.map(({ heading, component, files }) => (
               <TabPanel key={heading} p="10">
                 {selectedPanel === heading &&
-                  <ChartCodeViewer heading={heading} chart={component} files={files} />}
+                  <ChartSection heading={heading} chart={component} files={files} />}
               </TabPanel>
             ))
           ))

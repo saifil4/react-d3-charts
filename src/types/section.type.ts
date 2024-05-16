@@ -6,5 +6,5 @@ type Section = {
 
 export type Group = {
     name: string | null,
-    panels: Section[]
+    sections: Section[]
 }

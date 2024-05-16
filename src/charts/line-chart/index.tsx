@@ -15,7 +15,7 @@ import * as SimpleLineChartConfig from "./simple-line-chart/config?raw";
 
 const lineChartGroup: Group = {
     name: "Line Charts",
-    panels: [
+    sections: [
         {
             heading: "Simple Line Chart",
             component: SimpleLineChart,
