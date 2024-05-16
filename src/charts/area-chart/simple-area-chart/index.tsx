@@ -1,44 +1,28 @@
 
 import * as d3 from "d3";
 import { motion } from "framer-motion";
-
-type margin = {
-    top: number,
-    right: number,
-    bottom: number,
-    left: number
-}
-
-const width: number = 800, height: number = 400
-
-const margin: margin = {
-    top: 50,
-    right: 50,
-    bottom: 50,
-    left: 50
-}
+import { height, margin, width, data } from "./config";
 
 
-export function AreaChart() {
+export default function SimpleAreaChart() {
 
-    const data = [1, 2.3, 3.9, 4, 5.1, 2.3, 7, 8, 9, 10];
+    const areaChartData = data
 
     const innerWidth = width - margin.left - margin.right,
         innerHeight = height - margin.top - margin.bottom;
 
-    const yDomain = d3.extent(data) as Iterable<number>;
+    const yDomain = Array.from(d3.extent(areaChartData) as Iterable<number>);
 
-    const x = d3.scaleLinear([0, 9], [0, innerWidth]);
-    const y = d3.scaleLinear(yDomain, [innerHeight, 0]);
+    const xScale = d3.scaleLinear([0, 9], [0, innerWidth]);
+    const yScale = d3.scaleLinear(yDomain, [innerHeight, 0]);
 
-    const xTicks = x.ticks(10)
-    const yTicks = y.ticks(10)
+    const xTicks = xScale.ticks(10)
+    const yTicks = yScale.ticks(10)
 
-    const area = d3.area()
-        .x((_, i) => x(i))
-        .y0(y(yDomain[0]))
-        .y1(d => y(d));
-
+    const area = d3.area<[number, number]>()
+        .x((_, i) => xScale(i))
+        .y0(yScale(yDomain[0]))
+        .y1((d: [number, number]) => yScale(d[1]));
 
     return (
         <svg width={width} height={height}>
@@ -47,8 +31,8 @@ export function AreaChart() {
                     <AxisPath d={`M0,0L${innerWidth},0`} />
                     <g>
                         {xTicks.map((d) => (<>
-                            <Text dy={15} x={x(d)} y={0}> {d} </Text>
-                            <Line y1={0} y2={-innerHeight} x1={x(d)} x2={x(d)} />
+                            <Text dy={15} x={xScale(d)} y={0}> {d} </Text>
+                            <Line y1={0} y2={-innerHeight} x1={xScale(d)} x2={xScale(d)} />
                         </>))}
                     </g>
                 </g>
@@ -56,8 +40,8 @@ export function AreaChart() {
                     <AxisPath d={`M0,0L0,${innerHeight}`} />
                     <g>
                         {yTicks.map((d) => (<>
-                            <Text dx={-10} x={0} y={y(d)}> {d} </Text>
-                            <Line y1={y(d)} y2={y(d)} x1={innerWidth} x2={0} />
+                            <Text dx={-10} x={0} y={yScale(d)}> {d} </Text>
+                            <Line y1={yScale(d)} y2={yScale(d)} x1={innerWidth} x2={0} />
                         </>))}
                     </g>
                 </g>
@@ -67,7 +51,7 @@ export function AreaChart() {
                         animate={{ pathLength: 1 }}
                         transition={{ duration: 1 }}
                         fill="#ff6384"
-                        d={area(data) || undefined}
+                        d={area(areaChartData.map((d, i) => [i, d])) || undefined}
                     />
                 </g>
             </g>
