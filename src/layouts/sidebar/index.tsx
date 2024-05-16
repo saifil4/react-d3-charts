@@ -1,5 +1,5 @@
 import { TabList, Tab, Heading } from '@chakra-ui/react';
-import { PanelData } from '../../panel-data';
+import { SectionData } from '../../sections/section-data';
 
 type SideBarProps = {
     handleClick: (panel: string) => void
@@ -20,7 +20,7 @@ const SideBar: React.FC<SideBarProps> = ({ handleClick }) => {
             <br />
             <Tab justifyContent="left" key="getting-started">Getting Started</Tab>
             {
-                PanelData.map((group) => (
+                SectionData.map((group) => (
                     <>
                         <br />
                         {group.name && <Heading textTransform="uppercase" textColor="navy" fontSize="small" mb="2" pl="4" as="h2">{group.name}</Heading>}

@@ -1,71 +1,8 @@
 import * as d3 from "d3";
 import { motion } from "framer-motion";
+import { BarChartData, margin, height, width } from "./config";
 
-export const width: number = 800
-
-
-export const height: number = 400
-
-
-export const margin: {
-    top: number,
-    right: number,
-    bottom: number,
-    left: number
-} = {
-    top: 30,
-    right: 30,
-    bottom: 70,
-    left: 60
-}
-
-export const BarChartData: Array<any> =
-    [
-        {
-            "Country": "United States",
-            "Value": 12394
-        },
-        {
-            "Country": "Russia",
-            "Value": 6148
-        },
-        {
-            "Country": "Germany (FRG)",
-            "Value": 1653
-        },
-        {
-            "Country": "France",
-            "Value": 2162
-        },
-        {
-            "Country": "United Kingdom",
-            "Value": 1214
-        },
-        {
-            "Country": "China",
-            "Value": 1131
-        },
-        {
-            "Country": "Spain",
-            "Value": 814
-        },
-        {
-            "Country": "Netherlands",
-            "Value": 1167
-        },
-        {
-            "Country": "Italy",
-            "Value": 660
-        },
-        {
-            "Country": "Israel",
-            "Value": 1263
-        }
-    ]
-
-
-
-export function BarChart() {
+export default function SimpleBarChart() {
 
     const data = BarChartData || []
 
@@ -87,7 +24,7 @@ export function BarChart() {
                     <AxisPath d={`M0,0L${innerWidth},0`} />
                     <g>
                         {xTicks.map((d) => (<>
-                            <Text dy={15} dx={x.bandwidth()/2} x={x(d)} y={0}> {d} </Text>
+                            <Text dy={15} dx={x.bandwidth() / 2} x={x(d)} y={0}> {d} </Text>
                             <Line y1={0} y2={10} x1={x(d)} x2={x(d)} />
                         </>))}
                     </g>

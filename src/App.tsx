@@ -1,7 +1,6 @@
-import './App.css';
 import { useState } from 'react';
 import { Tabs, TabPanels, TabPanel } from '@chakra-ui/react';
-import { PanelData } from './panel-data';
+import { SectionData } from './sections/section-data';
 import ChartCodeViewer from 'components/ChartCodeViewer';
 import GettingStarted from 'sections/GettingStarted';
 import SideBar from 'layouts/sidebar';
@@ -22,7 +21,7 @@ function App() {
           <GettingStarted />
         </TabPanel>
         {
-          PanelData.map((group) => (
+          SectionData.map((group) => (
             group.panels.map(({ heading, component, files }) => (
               <TabPanel key={heading} p="10">
                 {selectedPanel === heading &&
