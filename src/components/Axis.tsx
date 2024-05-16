@@ -1,12 +1,14 @@
 
+type Orientation = "top" | "bottom" | "left" | "right";
+
 type AxisProps = {
     children?: React.ReactNode,
     height: number,
     width: number,
-    orientation: "top" | "bottom" | "left" | "right"
+    orientation: Orientation
 }
 
-const useAxis = (orientation: "top" | "bottom" | "left" | "right", height: number, width: number) => {
+const useAxis = (orientation: Orientation, height: number, width: number) => {
     let translateX = 0, translateY = 0, path = ""
     switch (orientation) {
         case "top": path = `M0,0L${width},0`
@@ -41,4 +43,3 @@ const AxisPath = (props: React.SVGAttributes<SVGPathElement>) =>
         strokeWidth={1}
         opacity={0.2}
         {...props} />
-        

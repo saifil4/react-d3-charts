@@ -1,30 +1,9 @@
 
 import * as d3 from "d3";
 import { motion } from "framer-motion";
+import { multiLineChartData, width, height, margin } from "./config";
 
-type margin = {
-    top: number,
-    right: number,
-    bottom: number,
-    left: number
-}
-
-const width: number = 800, height: number = 400
-
-const margin: margin = {
-    top: 50,
-    right: 50,
-    bottom: 50,
-    left: 50
-}
-
-const multiLineChartData: Array<any> = [
-    [1, 2.3, 3.9, 4, 5.1, 2.3, 7, 8, 9, 10],
-    [7, 6, 5, 2, 3, 5, 2, 4, 5]
-]
-
-
-export function MultiLineChart() {
+export default function MultiLineChart() {
 
     const data = multiLineChartData || [];
 

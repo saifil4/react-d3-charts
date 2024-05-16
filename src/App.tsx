@@ -3,13 +3,12 @@ import { useState } from 'react';
 import { Tabs, TabPanels, TabPanel } from '@chakra-ui/react';
 import { PanelData } from './panel-data';
 import ChartCodeViewer from 'components/ChartCodeViewer';
-import About from 'sections/about';
 import GettingStarted from 'sections/GettingStarted';
 import SideBar from 'layouts/sidebar';
 
 function App() {
 
-  const [selectedPanel, setSelectedPanel] = useState<string>('Simple Line Chart');
+  const [selectedPanel, setSelectedPanel] = useState<string>('getting-started');
 
   const handleClick = (panel: string) => {
     setSelectedPanel(panel);
@@ -19,9 +18,6 @@ function App() {
     <Tabs variant='soft-rounded' display="grid" gridTemplateColumns="300px auto" height="100%">
       <SideBar handleClick={handleClick} />
       <TabPanels as="main" minW="0" overflow="auto">
-        <TabPanel p="10" key="about">
-          <About />
-        </TabPanel>
         <TabPanel p="10" key="getting-started">
           <GettingStarted />
         </TabPanel>

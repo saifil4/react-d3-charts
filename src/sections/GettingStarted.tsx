@@ -11,8 +11,7 @@ const GettingStarted: React.FC = () => {
             <Heading as="h1">Getting Started</Heading>
             <br />
             <Text>
-                Reactive Charts is a approach to build beatiful reactive visualization charts using D3, React and Framer Motion.
-                It contains wide variety of charts that are used in visualizations.
+            Reactive Charts is an collection of examples for visualizations, created using React, D3 and Framer motion. The aim of this project is to create a declarative approach to create D3 charts.
             </Text>
             <br />
             <Heading fontSize="24px" as="h2">Installation</Heading>

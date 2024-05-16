@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { margin, height, width } from "./config";
 import { Axis } from "components/Axis";
 
-export function SimpleLineChart() {
+export default function SimpleLineChart() {
 
     const data = [1, 2.3, 3.9, 4, 5.1, 2.3, 7, 8, 9, 10];
 

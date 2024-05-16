@@ -1,7 +1,6 @@
 
 import * as d3 from "d3";
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 type margin = {
     top: number,
@@ -20,10 +19,7 @@ const margin: margin = {
 }
 
 
-export function LineChartWithHover() {
-
-    const [xCood, setXCood] = useState(0);
-    const [isXVisible, setIsXVisible] = useState(false);
+export function AreaChart() {
 
     const data = [1, 2.3, 3.9, 4, 5.1, 2.3, 7, 8, 9, 10];
 
@@ -38,21 +34,11 @@ export function LineChartWithHover() {
     const xTicks = x.ticks(10)
     const yTicks = y.ticks(10)
 
-    const line = d3.line((_, i) => x(i), y);
+    const area = d3.area()
+        .x((_, i) => x(i))
+        .y0(y(yDomain[0]))
+        .y1(d => y(d));
 
-    const handleMouseMove = (event: any) => {
-        // const [x_cord, y_cord] = d3.pointer(event);
-        const [x_cord] = d3.pointer(event);
-        const ratio = x_cord / innerWidth;
-        const current_year = 0 + Math.round(ratio * (9 - 0));
-        console.log(current_year);
-        setXCood(x(current_year));
-        // const cnt = data.find(d => d.year === current_year).cnt;
-        // mouse_g.attr('transform', `translate(${x(current_year)},${0})`);
-        // mouse_g.select('text').text(`year: ${current_year}, ${cnt}/${cnt_sum} papers`)
-        //     .attr('text-anchor', current_year < (min_year + max_year) / 2 ? "start" : "end");
-        // mouse_g.select('circle').attr('cy', y(cnt));
-    }
 
     return (
         <svg width={width} height={height}>
@@ -75,34 +61,13 @@ export function LineChartWithHover() {
                         </>))}
                     </g>
                 </g>
-
-                {
-                    isXVisible &&
-                    <motion.line
-                        initial={{ x1: 0, x2: 0 }}
-                        animate={{ x1: xCood, x2: xCood }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        y1={0} y2={innerHeight} stroke="black" />
-                }
-
-                <g
-                    onMouseMove={handleMouseMove}
-                    onMouseOver={() => setIsXVisible(true)}
-                    onMouseOut={() => setIsXVisible(false)}>
-                    <rect
-                        width={innerWidth}
-                        height={innerHeight}
-                        style={{ cursor: "pointer" }}
-                        fill="transparent"
-                    />
+                <g>
                     <motion.path
                         initial={{ pathLength: 0 }}
                         animate={{ pathLength: 1 }}
                         transition={{ duration: 1 }}
-                        fill="none"
-                        stroke="#ff6384"
-                        strokeWidth={2}
-                        d={line(data) || undefined}
+                        fill="#ff6384"
+                        d={area(data) || undefined}
                     />
                 </g>
             </g>

@@ -18,7 +18,6 @@ const SideBar: React.FC<SideBarProps> = ({ handleClick }) => {
         >
             <Heading as="h1" fontSize="30px">Reactive Charts</Heading>
             <br />
-            <Tab justifyContent="left" key="about">About</Tab>
             <Tab justifyContent="left" key="getting-started">Getting Started</Tab>
             {
                 PanelData.map((group) => (
