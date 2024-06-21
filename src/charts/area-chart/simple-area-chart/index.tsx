@@ -47,11 +47,12 @@ export default function SimpleAreaChart() {
                 </g>
                 <g>
                     <motion.path
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
+                        initial={{ d: area(areaChartData.map((d, i) => [i, 0])) || undefined }}
+                        animate={{ d: area(areaChartData.map((d, i) => [i, d])) || undefined }}
                         transition={{ duration: 1 }}
                         fill="#ff6384"
-                        d={area(areaChartData.map((d, i) => [i, d])) || undefined}
+
+                    // d={area(areaChartData.map((d, i) => [i,d])) || undefined}
                     />
                 </g>
             </g>
