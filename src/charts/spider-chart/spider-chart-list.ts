@@ -6,7 +6,7 @@ import { Group } from "types/section.type";
 
 const spiderChartGroup: Group =
 {
-    name: "Bar Charts",
+    name: "Spider Charts",
     sections: [
         {
             heading: "Simple Spider Chart",
