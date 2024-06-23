@@ -47,7 +47,7 @@ export default function SimpleAreaChart() {
                 </g>
                 <g>
                     <motion.path
-                        initial={{ d: area(areaChartData.map((d, i) => [i, 0])) || undefined }}
+                        initial={{ d: area(areaChartData.map((_, i) => [i, yDomain[0]])) || undefined }}
                         animate={{ d: area(areaChartData.map((d, i) => [i, d])) || undefined }}
                         transition={{ duration: 1 }}
                         fill="#ff6384"
