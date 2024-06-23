@@ -1,5 +1,5 @@
 import { lineChartGroup } from "charts/line-chart/line-chart-list";
-import { spiderChartGroup } from "charts/spider-chart/spider-chart-list";
+import { otherChartGroup } from "charts/other-chart/other-chart-list";
 import { areaChartGroup } from "charts/area-chart/area-chart-list";
 import { pieChartGroup } from "charts/pie-chart/pie-chart-list";
 import { barChartGroup } from "charts/bar-chart/bar-chart-list";
@@ -23,5 +23,5 @@ export const chartList: Group[] = [
     barChartGroup,
     areaChartGroup,
     pieChartGroup,
-    spiderChartGroup
+    otherChartGroup
 ]

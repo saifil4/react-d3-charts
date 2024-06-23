@@ -15,6 +15,14 @@ const areaChartGroup: Group =
                 { code: SimpleAreaChartRaw.default, name: "SimpleAreaChart.tsx" },
                 { code: SimpleAreaChartConfig.default, name: "config.ts" },
             ],
+        },
+        {
+            heading: "Multi Area Chart",
+            component: SimpleAreaChart,
+            files: [
+                { code: SimpleAreaChartRaw.default, name: "SimpleAreaChart.tsx" },
+                { code: SimpleAreaChartConfig.default, name: "config.ts" },
+            ],
         }
     ]
 }

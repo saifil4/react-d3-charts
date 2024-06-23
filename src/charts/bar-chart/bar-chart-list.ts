@@ -15,6 +15,22 @@ const barChartGroup: Group =
                 { code: SimpleBarChartRaw.default, name: "SimpleBarChart.tsx" },
                 { code: SimpleBarChartConfig.default, name: "config.ts" },
             ],
+        },
+        {
+            heading: "Grouped Bar Chart",
+            component: SimpleBarChart,
+            files: [
+                { code: SimpleBarChartRaw.default, name: "SimpleBarChart.tsx" },
+                { code: SimpleBarChartConfig.default, name: "config.ts" },
+            ],
+        },
+        {
+            heading: "Stacked Bar Chart",
+            component: SimpleBarChart,
+            files: [
+                { code: SimpleBarChartRaw.default, name: "SimpleBarChart.tsx" },
+                { code: SimpleBarChartConfig.default, name: "config.ts" },
+            ],
         }
     ]
 }
