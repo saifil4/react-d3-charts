@@ -30,7 +30,6 @@ const SimpleSpiderChart: React.FC = () => {
                 console.log(parameter)
                 let x = Math.cos(parameter.angle) * parameter.scale(car[parameter.name as keyof Specs]);
                 let y = Math.sin(parameter.angle) * parameter.scale(car[parameter.name as keyof Specs]);
-                // console.log(cars[i].model, parameter.name, x, y)
                 return { parameter: parameter.name, "x": width / 2 + x, "y": height / 2 - y };
             })
         }
