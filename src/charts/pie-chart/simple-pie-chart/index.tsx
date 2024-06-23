@@ -1,41 +1,25 @@
 import React from 'react';
 import * as d3 from 'd3';
 import { motion } from "framer-motion";
-
-interface Props {
-
-}
-
-const width = 450,
-    height = 450,
-    margin = 40;
-
-const data = [
-    { name: "d", value: 8 },
-    { name: "a", value: 9 },
-    { name: "e", value: 12 },
-    { name: "b", value: 20 },
-    { name: "c", value: 30 }
-]
+import { EnergySource, width, height, data, margin } from './config';
 
 const color = d3.scaleOrdinal()
     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56"])
 
 const radius = Math.min(width, height) / 2 - margin;
 
-const PieChart: React.FC<Props> = () => {
+const PieChart: React.FC = () => {
 
-    const pie = d3.pie().value((d) => d.value);
+    const pie = d3.pie<EnergySource>().value((d) => d.value);
     const arcs = pie(data).sort((a, b) => b.value - a.value);
 
-    const animatedArray = (d) => {
-        const animatedValues = [];
-        const incrementValue = 0.01;
-        const iterations = Math.ceil((d.endAngle - d.startAngle) / incrementValue);
+    const animateValues = (d: d3.PieArcDatum<EnergySource>) => {
+        const animatedValues: (string | null)[] = [];
+        const incrementBy = 0.01;
+        const iterations = Math.ceil((d.endAngle - d.startAngle) / incrementBy);
         for (let i = 0; i < iterations; i++) {
-            let endAngle = d.startAngle + ((i + 1) * incrementValue);
-            if (i === iterations - 1) endAngle = d.endAngle;
-            const arc = d3.arc().innerRadius(100).outerRadius(radius)({ ...d, endAngle: endAngle });
+            let endAngle = i === iterations - 1 ? d.endAngle : d.startAngle + i * incrementBy; // Ensure the last value is the actual end angle
+            const arc = d3.arc()({ ...d, endAngle: endAngle, innerRadius: 0, outerRadius: radius });
             animatedValues.push(arc);
         }
         return animatedValues;
@@ -48,11 +32,9 @@ const PieChart: React.FC<Props> = () => {
                     arcs.map((d, i) => (
                         <motion.path
                             key={i}
-                            animate={{ d: animatedArray(d) }}
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                            fill={color(d.value.toString()) as string}
-                            stroke="black"
-                            strokeWidth={2} />
+                            animate={{ d: animateValues(d) as string[] }}
+                            transition={{ duration: 0.3, delay: i * 0.3, ease: "easeIn" }}
+                            fill={color(d.value.toString()) as string} />
                     ))
                 }
             </g>
