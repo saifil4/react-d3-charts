@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Tabs, TabPanels, TabPanel } from '@chakra-ui/react';
-import { sectionList } from './sections/section-list';
+import { chartList } from 'charts/chart-list';
 import ChartSection from 'layouts/ChartSection';
 import GettingStarted from 'sections/GettingStarted';
 import SideBar from 'layouts/SideBar';
@@ -19,7 +19,7 @@ function App() {
           <GettingStarted />
         </TabPanel>
         {
-          sectionList.map((group) => (
+          chartList.map((group) => (
             group.sections.map(({ heading, component, files }) => (
               <TabPanel key={heading} p="10">
                 {selectedPanel === heading &&
