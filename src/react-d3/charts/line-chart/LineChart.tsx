@@ -3,16 +3,18 @@ import * as d3 from "d3";
 import { motion } from "framer-motion";
 import { Axis } from "react-d3/components/Axis";
 import { lineChartData, TLineChart } from "react-d3/data/line-chart-data";
+import { useDimensions } from "react-d3/hooks/useDimensions";
 
 export default function LineChart() {
 
-    const { margin, height, width, data } = lineChartData;
+    const { height, width, data, title, margin } = lineChartData;
+    const { innerHeight, innerWidth, transform } = useDimensions(lineChartData);
 
-    const innerWidth = width - margin.left - margin.right;
-    const innerHeight = height - margin.top - margin.bottom;
+    const parseTime = d3.timeParse('%Y');
+    const dateFormat = d3.timeFormat("%Y");
 
     const yDomain = d3.extent(data, d => d.y) as Iterable<number>;
-    const xDomain = d3.extent(data, (d) => new Date(d.x)) as Iterable<Date>;
+    const xDomain = d3.extent(data, d => parseTime(d.x)) as Iterable<Date>;
 
     const x = d3.scaleTime(xDomain, [0, innerWidth]);
     const y = d3.scaleLinear(yDomain, [innerHeight, 0]);
@@ -20,13 +22,12 @@ export default function LineChart() {
     const xTicks = x.ticks(10)
     const yTicks = y.ticks(10)
 
-    const dateFormat = d3.timeFormat("%Y");
-
-    const line = d3.line<TLineChart>().x(d => x((new Date(d.x)))).y(d => y(d.y));
+    const line = d3.line<TLineChart>().x(d => x(new Date(d.x))).y(d => y(d.y));
 
     return (
         <svg width={width} height={height}>
-            <g style={{ transform: `translate(${margin.left}px, ${margin.top}px)` }}>
+            <g style={{ transform: transform }}>
+                <text x={innerWidth / 2} dy={-5} y={height - margin.bottom} textAnchor="middle" style={{ fontSize: "16px", fontWeight: "bold" }}>{title}</text>
                 <Axis
                     orientation="bottom"
                     width={innerWidth}
@@ -67,6 +68,7 @@ export default function LineChart() {
                             cy={y(c.y)} />
                     ))}
                 </g>
+
             </g>
         </svg>
     );
