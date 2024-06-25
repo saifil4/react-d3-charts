@@ -1,25 +1,31 @@
 
 import * as d3 from "d3";
 import { motion } from "framer-motion";
-import { margin, height, width } from "./config";
 import { Axis } from "react-d3/components/Axis";
+import { lineChartData, TLineChart } from "react-d3/data/line-chart-data";
 
-export default function SimpleLineChart() {
 
-    const data = [1, 2.3, 3.9, 4, 5.1, 2.3, 7, 8, 9, 10];
+export default function LineChart() {
+
+
+    const { margin, height, width, data } = lineChartData;
 
     const innerWidth = width - margin.left - margin.right,
         innerHeight = height - margin.top - margin.bottom;
 
-    const yDomain = d3.extent(data) as Iterable<number>;
+    const yDomain = d3.extent(data.map(d => d.y)) as Iterable<number>;
+    const xDomain = d3.extent(data, function(d) { return d.x; })
 
-    const x = d3.scaleLinear([0, 9], [0, innerWidth]);
+    const x = d3.scaleTime(xDomain, [0, innerWidth]);
     const y = d3.scaleLinear(yDomain, [innerHeight, 0]);
 
     const xTicks = x.ticks(10)
     const yTicks = y.ticks(10)
 
-    const line = d3.line((_, i) => x(i), y).curve(d3.curveMonotoneX);
+    const dateFormat = d3.timeFormat("%Y");
+
+
+    const line = d3.line<TLineChart>().x(d => x((d.x))).y(d => y(d.y));
 
     return (
         <svg width={width} height={height}>
@@ -30,7 +36,7 @@ export default function SimpleLineChart() {
                     width={innerWidth}
                     height={innerHeight}>
                     {xTicks.map((d) => (<>
-                        <Text dy={15} x={x(d)} y={0}> {d} </Text>
+                        <Text dy={15} x={x(d)} y={0}> {dateFormat(d)} </Text>
                         <Line y1={0} y2={-innerHeight} x1={x(d)} x2={x(d)} />
                     </>))}
                 </Axis>

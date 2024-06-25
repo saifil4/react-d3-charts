@@ -1,27 +1,28 @@
 import { Group } from "types/section.type";
 
+import LineChart from "react-d3/charts/line-chart/LineChart";
+import * as LineChartRaw from "react-d3/charts/line-chart/LineChart?raw";
+import * as LineChartDataRaw from "react-d3/data/line-chart-data?raw";
+
 import MultiLineChart from "react-d3/charts/line-chart/multi-line-chart";
 import LineChartWithHover from "react-d3/charts/line-chart/line-chart-with-hover";
-import SimpleLineChart from "react-d3/charts/line-chart/simple-line-chart";
 
 import * as MultiLineChartRaw from "react-d3/charts/line-chart/multi-line-chart?raw";
 import * as LineChartWithHoverRaw from "react-d3/charts/line-chart/line-chart-with-hover?raw";
-import * as SimpleLineChartRaw from "react-d3/charts/line-chart/simple-line-chart?raw";
 
 import * as MultiLineChartConfig from "react-d3/charts/line-chart/multi-line-chart/config?raw";
 import * as LineChartWithHoverConfig from "react-d3/charts/line-chart/line-chart-with-hover/config?raw";
-import * as SimpleLineChartConfig from "react-d3/charts/line-chart/simple-line-chart/config?raw";
 
 
 const lineChartGroup: Group = {
     name: "Line Charts",
     sections: [
         {
-            heading: "Simple Line Chart",
-            component: SimpleLineChart,
+            heading: "Line Chart",
+            component: LineChart,
             files: [
-                { code: SimpleLineChartRaw.default, name: "SimpleLineChart.tsx" },
-                { code: SimpleLineChartConfig.default, name: "config.ts" },
+                { code: LineChartRaw.default, name: "LineChart.tsx" },
+                { code: LineChartDataRaw.default, name: "line-chart-data.ts" },
             ],
         },
         {

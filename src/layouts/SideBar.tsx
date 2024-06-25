@@ -25,6 +25,7 @@ const SideBar: React.FC<SideBarProps> = ({ handleClick }) => {
                         <br />
                         {group.name &&
                             <Heading
+                                key={group.name}
                                 textTransform="uppercase"
                                 textColor="navy"
                                 fontSize="small"
