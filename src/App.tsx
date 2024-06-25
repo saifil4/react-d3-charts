@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Tabs, TabPanels, TabPanel } from '@chakra-ui/react';
-import { chartList } from 'charts/chart-list';
+import { chartList } from 'react-d3/charts/chart-list';
 import ChartSection from 'layouts/ChartSection';
 import GettingStarted from 'sections/GettingStarted';
 import SideBar from 'layouts/SideBar';

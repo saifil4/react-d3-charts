@@ -1,5 +1,5 @@
 import { TabList, Tab, Heading } from '@chakra-ui/react';
-import { chartList } from 'charts/chart-list';
+import { chartList } from 'react-d3/charts/chart-list';
 
 type SideBarProps = {
     handleClick: (sectionName: string) => void

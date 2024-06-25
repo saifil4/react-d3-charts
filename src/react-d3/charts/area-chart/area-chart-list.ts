@@ -1,7 +1,7 @@
 import SimpleAreaChart from "./simple-area-chart";
 import * as SimpleAreaChartRaw from "./simple-area-chart?raw";
 import * as SimpleAreaChartConfig from "./simple-area-chart/config?raw";
-import { Group } from 'types/section.type';
+import { Group } from 'react-d3/types/section.type';
 
 
 const areaChartGroup: Group =

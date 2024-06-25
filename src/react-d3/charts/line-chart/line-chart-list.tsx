@@ -1,4 +1,4 @@
-import { Group } from "types/section.type";
+import { Group } from "react-d3/types/section.type";
 
 import MultiLineChart from "./multi-line-chart";
 import LineChartWithHover from "./line-chart-with-hover";

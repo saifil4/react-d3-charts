@@ -2,7 +2,7 @@
 import * as d3 from "d3";
 import { motion } from "framer-motion";
 import { margin, height, width } from "./config";
-import { Axis } from "components/Axis";
+import { Axis } from "react-d3/components/Axis";
 
 export default function SimpleLineChart() {
 

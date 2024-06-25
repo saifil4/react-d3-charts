@@ -8,7 +8,7 @@ export default defineConfig({
     alias: {
       components: "/src/components",
       layouts: "/src/layouts",
-      charts: "/src/charts",
+      "react-d3": "/src/react-d3",
       sections: "/src/sections",
     },
   },
