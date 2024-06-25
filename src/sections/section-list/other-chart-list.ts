@@ -1,7 +1,7 @@
-import SimpleSpiderChart from "./spider-chart";
-import * as SimpleSpiderChartRaw from "./spider-chart?raw";
-import * as SimpleSpiderChartConfig from "./spider-chart/config?raw";
-import { Group } from "react-d3/types/section.type";
+import SimpleSpiderChart from "react-d3/charts/other-chart/spider-chart";
+import * as SimpleSpiderChartRaw from "react-d3/charts/other-chart/spider-chart?raw";
+import * as SimpleSpiderChartConfig from "react-d3/charts/other-chart/spider-chart/config?raw";
+import { Group } from "types/section.type";
 
 
 const otherChartGroup: Group =

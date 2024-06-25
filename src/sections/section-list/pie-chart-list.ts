@@ -1,6 +1,6 @@
-import PieChart from "./simple-pie-chart"
-import * as PieChartRaw from "./simple-pie-chart?raw"
-import { Group } from "react-d3/types/section.type"
+import PieChart from "react-d3/charts/pie-chart/simple-pie-chart"
+import * as PieChartRaw from "react-d3/charts/pie-chart/simple-pie-chart?raw"
+import { Group } from "types/section.type"
 
 const pieChartGroup: Group =
 {

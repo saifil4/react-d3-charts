@@ -8,3 +8,8 @@ export type Group = {
     name: string | null,
     sections: Section[]
 }
+
+// export type Chart {
+//     name: string,
+    
+// }

@@ -1,7 +1,7 @@
-import SimpleBarChart from './simple-bar-chart';
-import * as SimpleBarChartRaw from "./simple-bar-chart?raw";
-import * as SimpleBarChartConfig from "./simple-bar-chart/config?raw";
-import { Group } from 'react-d3/types/section.type';
+import SimpleBarChart from 'react-d3/charts/bar-chart/simple-bar-chart';
+import * as SimpleBarChartRaw from "react-d3/charts/bar-chart/simple-bar-chart?raw";
+import * as SimpleBarChartConfig from "react-d3/charts/bar-chart/simple-bar-chart/config?raw";
+import { Group } from 'types/section.type';
 
 
 const barChartGroup: Group =

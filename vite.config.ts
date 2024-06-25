@@ -10,6 +10,7 @@ export default defineConfig({
       layouts: "/src/layouts",
       "react-d3": "/src/react-d3",
       sections: "/src/sections",
+      types: "/src/types",
     },
   },
 })

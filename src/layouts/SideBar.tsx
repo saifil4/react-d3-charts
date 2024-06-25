@@ -1,5 +1,5 @@
 import { TabList, Tab, Heading } from '@chakra-ui/react';
-import { chartList } from 'react-d3/charts/chart-list';
+import sectionList from 'sections/section-list';
 
 type SideBarProps = {
     handleClick: (sectionName: string) => void
@@ -20,7 +20,7 @@ const SideBar: React.FC<SideBarProps> = ({ handleClick }) => {
             <br />
             <Tab justifyContent="left" key="getting-started">Getting Started</Tab>
             {
-                chartList.map((group) => (
+                sectionList.map((group) => (
                     <>
                         <br />
                         {group.name &&
