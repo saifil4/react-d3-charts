@@ -1,4 +1,6 @@
 import { Group } from "types/section.type";
+import * as TChartRaw from "react-d3/data/type?raw";
+import * as AxisRaw from "react-d3/components/Axis?raw";
 
 import LineChart from "react-d3/charts/line-chart/LineChart";
 import * as LineChartRaw from "react-d3/charts/line-chart/LineChart?raw";
@@ -22,7 +24,9 @@ const lineChartGroup: Group = {
             component: LineChart,
             files: [
                 { code: LineChartRaw.default, name: "LineChart.tsx" },
+                { code: AxisRaw.default, name: "Axis.tsx" },
                 { code: LineChartDataRaw.default, name: "line-chart-data.ts" },
+                { code: TChartRaw.default, name: "type.ts" },
             ],
         },
         {

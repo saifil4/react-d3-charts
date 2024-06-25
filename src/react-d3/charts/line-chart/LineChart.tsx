@@ -27,7 +27,6 @@ export default function LineChart() {
     return (
         <svg width={width} height={height}>
             <g style={{ transform: `translate(${margin.left}px, ${margin.top}px)` }}>
-
                 <Axis
                     orientation="bottom"
                     width={innerWidth}
@@ -46,7 +45,7 @@ export default function LineChart() {
                         <Line y1={y(d)} y2={y(d)} x1={innerWidth} x2={0} />
                     </>))}
                 </Axis>
-                <g>
+                <g name="line-path">
                     <motion.path
                         initial={{ pathLength: 0 }}
                         animate={{ pathLength: 1 }}
@@ -58,10 +57,10 @@ export default function LineChart() {
                     />
                     {data.map((c, i) => (
                         <motion.circle
+                            key={i}
                             initial={{ r: 0 }}
                             animate={{ r: 5 }}
                             transition={{ duration: 1, delay: i * 1 / data.length }}
-                            key={i}
                             fill="#ff638490"
                             stroke="#ff6384"
                             cx={x(new Date(c.x))}

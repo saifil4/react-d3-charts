@@ -30,7 +30,7 @@ export const Axis: React.FC<AxisProps> = ({ orientation, height, width, children
     const { translateX, translateY, path } = useAxis(orientation, height, width);
 
     return (
-        <g style={{ transform: `translate(${translateX}px, ${translateY}px)` }}>
+        <g name={`${orientation}-axis`} style={{ transform: `translate(${translateX}px, ${translateY}px)` }}>
             <AxisPath d={path} />
             <g>{children} </g>
         </g>
