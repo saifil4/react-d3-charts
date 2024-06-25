@@ -4,17 +4,15 @@ import { motion } from "framer-motion";
 import { Axis } from "react-d3/components/Axis";
 import { lineChartData, TLineChart } from "react-d3/data/line-chart-data";
 
-
 export default function LineChart() {
-
 
     const { margin, height, width, data } = lineChartData;
 
-    const innerWidth = width - margin.left - margin.right,
-        innerHeight = height - margin.top - margin.bottom;
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
 
-    const yDomain = d3.extent(data.map(d => d.y)) as Iterable<number>;
-    const xDomain = d3.extent(data, function(d) { return d.x; })
+    const yDomain = d3.extent(data, d => d.y) as Iterable<number>;
+    const xDomain = d3.extent(data, (d) => new Date(d.x)) as Iterable<Date>;
 
     const x = d3.scaleTime(xDomain, [0, innerWidth]);
     const y = d3.scaleLinear(yDomain, [innerHeight, 0]);
@@ -24,8 +22,7 @@ export default function LineChart() {
 
     const dateFormat = d3.timeFormat("%Y");
 
-
-    const line = d3.line<TLineChart>().x(d => x((d.x))).y(d => y(d.y));
+    const line = d3.line<TLineChart>().x(d => x((new Date(d.x)))).y(d => y(d.y));
 
     return (
         <svg width={width} height={height}>
@@ -67,8 +64,8 @@ export default function LineChart() {
                             key={i}
                             fill="#ff638490"
                             stroke="#ff6384"
-                            cx={x(i)}
-                            cy={y(c)} />
+                            cx={x(new Date(c.x))}
+                            cy={y(c.y)} />
                     ))}
                 </g>
             </g>
