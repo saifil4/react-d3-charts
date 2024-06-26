@@ -27,7 +27,7 @@ export default function LineChart() {
     return (
         <svg width={width} height={height}>
             <g style={{ transform: transform }}>
-                <text x={innerWidth / 2} dy={-5} y={height - margin.bottom} textAnchor="middle" style={{ fontSize: "16px", fontWeight: "bold" }}>{title}</text>
+                <text x={innerWidth / 2} dy={-20} y={0} textAnchor="middle" style={{ fontSize: "16px", fontWeight: "bold" }}>{title}</text>
                 <Axis
                     orientation="bottom"
                     width={innerWidth}

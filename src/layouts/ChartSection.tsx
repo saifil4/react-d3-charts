@@ -20,7 +20,7 @@ const ChartSection: React.FC<Props> = ({ chart: Chart, heading, files }) =>
                     <Tab
                         py="15px" 
                         color="white" 
-                        _selected={{ borderBottom: "2px solid #74b9ff", color: "#74b9ff", fontWeight: "bold"}} 
+                        _selected={{ borderBottom: "2px solid #85B8FF", color: "#85B8FF", fontWeight: "bold"}} 
                         key={file.name}>{file.name}</Tab>
                 ))}
             </TabList>
