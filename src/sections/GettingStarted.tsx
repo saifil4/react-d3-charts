@@ -11,7 +11,7 @@ const GettingStarted: React.FC = () => {
             <Heading as="h1">Getting Started</Heading>
             <br />
             <Text>
-                Reactive Charts is a compilation of visualization examples built with React, D3, and Framer Motion. The project aims to provide a declarative method for creating D3 charts.
+                React D3 Charts is a compilation of visualization examples built with React, D3, and Framer Motion. The project aims to provide a declarative method for creating D3 charts.
             </Text>
             <br />
             <Heading fontSize="24px" as="h2">Installation</Heading>

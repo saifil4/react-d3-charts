@@ -49,7 +49,10 @@ export default function WithAction() {
                 />
                 <HStack spacing={8} alignItems={'center'}>
                     <Box>
-                        <Heading fontSize="large"> React D3 Charts</Heading>
+                        <HStack>
+                            <img src='/logo.svg' alt='logo' width='32px' height='32px' />
+                            <Heading textColor="gray.700" fontSize="larger"> React D3 Charts</Heading>
+                        </HStack>
                     </Box>
                     {/* <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
                         {Links.map((link) => (
