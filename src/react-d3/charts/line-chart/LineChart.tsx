@@ -25,7 +25,8 @@ export default function LineChart() {
     const line = d3.line<TLineChart>().x(d => x(new Date(d.x))).y(d => y(d.y));
 
     return (
-        <svg width={width} height={height}>
+
+        <ResponsiveSVG viewBox={`0 0 ${width} ${height}`}>
             <g style={{ transform: transform }}>
                 <text x={innerWidth / 2} dy={-20} y={0} textAnchor="middle" style={{ fontSize: "16px", fontWeight: "bold" }}>{title}</text>
                 <Axis
@@ -70,10 +71,19 @@ export default function LineChart() {
                 </g>
 
             </g>
-        </svg>
+        </ResponsiveSVG>
+
     );
 }
 
+const ResponsiveSVG = (props: React.SVGAttributes<SVGSVGElement>) =>
+    <svg
+        viewBox={props.viewBox}
+        width="100%"
+        height="100%"
+        preserveAspectRatio="xMinYMid meet"
+        {...props}
+    />
 
 const Text = (props: React.SVGAttributes<SVGTextElement>) =>
     <text
