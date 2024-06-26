@@ -12,11 +12,11 @@ const SideBar: React.FC<SideBarProps> = ({ handleClick }) => {
             as="nav"
             display="flex"
             flexDirection="column"
-            backgroundColor="#fbfbfb"
             overflow="auto"
             w='100%'
             h='100%'
-            p="7"
+            py="7"
+            px="4"
         >
             <ChartTab key='getting-started' name='Getting Started' handleClick={() => handleClick('getting-started')} />
             {
@@ -27,10 +27,10 @@ const SideBar: React.FC<SideBarProps> = ({ handleClick }) => {
                             <Heading
                                 key={group.name}
                                 textTransform="uppercase"
-                                textColor="#091E42"
-                                fontSize="small"
+                                textColor="brand.blue.500"
+                                fontSize="smaller"
                                 fontWeight="bolder"
-                                mb="2"
+                                mb="3"
                                 pl="4"
                                 as="h2">{group.name}</Heading>}
                         {
@@ -62,9 +62,10 @@ const ChartTab: React.FC<ChartTabProps> = ({ key, name, handleClick }) => {
         <Tab
             onClick={() => handleClick(key)}
             justifyContent="left"
-            fontWeight="600"
-            textColor="#626F86"
-            _selected={{ backgroundColor: "brand.blue.500", color: "white" }}
+            fontWeight="500"
+            fontSize="15px"
+            textColor="gray.700"
+            _selected={{ backgroundColor: "brand.blue.100", color: "brand.blue.700", fontWeight: "700" }}
             key={key}>{name}</Tab>
     )
 }
