@@ -7,7 +7,7 @@ import { useDimensions } from "react-d3/hooks/useDimensions";
 
 export default function LineChart() {
 
-    const { height, width, data, title, margin } = lineChartData;
+    const { height, width, data, title } = lineChartData;
     const { innerHeight, innerWidth, transform } = useDimensions(lineChartData);
 
     const parseTime = d3.timeParse('%Y');
