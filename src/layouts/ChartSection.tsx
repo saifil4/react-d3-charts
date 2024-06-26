@@ -13,10 +13,15 @@ const ChartSection: React.FC<Props> = ({ chart: Chart, heading, files }) =>
         <Heading as="h1">{heading}</Heading>
         <Chart />
         <br />
-        <Tabs>
-            <TabList>
+        <br />
+        <Tabs borderRadius="10px" overflow="hidden" backgroundColor="#282a36">
+            <TabList backgroundColor="#2c3e50" borderBottom="none">
                 {files.map((file) => (
-                    <Tab key={file.name}>{file.name}</Tab>
+                    <Tab
+                        py="15px" 
+                        color="white" 
+                        _selected={{ borderBottom: "2px solid #74b9ff", color: "#74b9ff", fontWeight: "bold"}} 
+                        key={file.name}>{file.name}</Tab>
                 ))}
             </TabList>
             <TabPanels>

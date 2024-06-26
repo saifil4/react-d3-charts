@@ -12,13 +12,13 @@ const SideBar: React.FC<SideBarProps> = ({ handleClick }) => {
             as="nav"
             display="flex"
             flexDirection="column"
+            backgroundColor="#fbfbfb"
+            overflow="auto"
             w='100%'
             h='100%'
             p="7"
         >
-            <Heading as="h1" fontSize="30px">Reactive Charts</Heading>
-            <br />
-            <Tab justifyContent="left" key="getting-started">Getting Started</Tab>
+            <ChartTab key='getting-started' name='Getting Started' handleClick={() => handleClick('getting-started')} />
             {
                 sectionList.map((group) => (
                     <>
@@ -27,17 +27,18 @@ const SideBar: React.FC<SideBarProps> = ({ handleClick }) => {
                             <Heading
                                 key={group.name}
                                 textTransform="uppercase"
-                                textColor="navy"
+                                textColor="#091E42"
                                 fontSize="small"
+                                fontWeight="bolder"
                                 mb="2"
                                 pl="4"
                                 as="h2">{group.name}</Heading>}
                         {
                             group.sections.map((section) => (
-                                <Tab
-                                    onClick={() => handleClick(section.heading)}
-                                    justifyContent="left"
-                                    key={section.heading}>{section.heading}</Tab>
+                                <ChartTab
+                                    key={section.heading}
+                                    name={section.heading}
+                                    handleClick={() => handleClick(section.heading)} />
                             ))
 
                         }
@@ -48,4 +49,22 @@ const SideBar: React.FC<SideBarProps> = ({ handleClick }) => {
     )
 }
 
-export default SideBar
+export default SideBar;
+
+type ChartTabProps = {
+    key: string,
+    name: string,
+    handleClick: (key: string) => void
+}
+
+const ChartTab: React.FC<ChartTabProps> = ({ key, name, handleClick }) => {
+    return (
+        <Tab
+            onClick={() => handleClick(key)}
+            justifyContent="left"
+            fontWeight="600"
+            textColor="#626F86"
+            _selected={{ backgroundColor: "brand.blue.500", color: "white" }}
+            key={key}>{name}</Tab>
+    )
+}
