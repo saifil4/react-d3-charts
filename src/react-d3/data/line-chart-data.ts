@@ -16,8 +16,8 @@ export const lineChartData: TLineChartData = {
         bottom: 50,
         left: 50
     },
-    width: 800,
-    height: 350,
+    width: 700,
+    height: 250,
     title: "Line Chart",
     data: [
         { x: '2010', y: 10 },

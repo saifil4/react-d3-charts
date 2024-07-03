@@ -1,7 +1,7 @@
 
 type Orientation = "top" | "bottom" | "left" | "right";
 
-type AxisProps = {
+type TAxisProps = {
     children?: React.ReactNode,
     height: number,
     width: number,
@@ -25,7 +25,7 @@ const useAxis = (orientation: Orientation, height: number, width: number) => {
 
 
 
-export const Axis: React.FC<AxisProps> = ({ orientation, height, width, children }) => {
+export const Axis: React.FC<TAxisProps> = ({ orientation, height, width, children }) => {
 
     const { translateX, translateY, path } = useAxis(orientation, height, width);
 
