@@ -5,7 +5,7 @@ import { useState } from "react";
 import { height, margin, width, data } from "./config";
 
 
-export default function LineChartWithHover() {
+export default function AreaChartWithHover() {
 
     const [xCood, setXCood] = useState(0);
     const [isXVisible, setIsXVisible] = useState(false);
@@ -13,7 +13,9 @@ export default function LineChartWithHover() {
     const innerWidth = width - margin.left - margin.right,
         innerHeight = height - margin.top - margin.bottom;
 
-    const yDomain = d3.extent(data) as Iterable<number>;
+    // const yDomain = d3.extent(data) as Iterable<number>;
+    const yDomain = Array.from(d3.extent(data) as Iterable<number>);
+
 
     const x = d3.scaleLinear([0, 9], [0, innerWidth]);
     const y = d3.scaleLinear(yDomain, [innerHeight, 0]);
@@ -21,7 +23,10 @@ export default function LineChartWithHover() {
     const xTicks = x.ticks(10)
     const yTicks = y.ticks(10)
 
-    const line = d3.line((_, i) => x(i), y);
+    const area = d3.area<[number, number]>()
+        .x((_, i) => x(i))
+        .y0(y(yDomain[0]))
+        .y1((d: [number, number]) => y(d[1]));
 
     const handleMouseMove = (event: any) => {
         // const [x_cord, y_cord] = d3.pointer(event);
@@ -71,6 +76,14 @@ export default function LineChartWithHover() {
                         fill="transparent"
                     />
                     <motion.path
+                        initial={{ d: area(data.map((_, i) => [i, y[0]])) || undefined }}
+                        animate={{ d: area(data.map((d, i) => [i, d])) || undefined }}
+                        transition={{ duration: 1 }}
+                        fill="#ff6384"
+
+                    // d={area(areaChartData.map((d, i) => [i,d])) || undefined}
+                    />
+                    {/* <motion.path
                         initial={{ pathLength: 0 }}
                         animate={{ pathLength: 1 }}
                         transition={{ duration: 1 }}
@@ -78,7 +91,7 @@ export default function LineChartWithHover() {
                         strokeWidth={2}
                         stroke="#ff6384"
                         d={line(data) || undefined}
-                    />
+                    /> */}
                 </g>
                 {
                     isXVisible &&

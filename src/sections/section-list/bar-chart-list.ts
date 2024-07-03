@@ -15,6 +15,7 @@ const barChartGroup: Group =
                 { code: SimpleBarChartRaw.default, name: "SimpleBarChart.tsx" },
                 { code: SimpleBarChartConfig.default, name: "config.ts" },
             ],
+            status: "available"
         },
         {
             heading: "Grouped Bar Chart",
@@ -23,6 +24,7 @@ const barChartGroup: Group =
                 { code: SimpleBarChartRaw.default, name: "SimpleBarChart.tsx" },
                 { code: SimpleBarChartConfig.default, name: "config.ts" },
             ],
+            status: "in-progress"
         },
         {
             heading: "Stacked Bar Chart",
@@ -31,6 +33,7 @@ const barChartGroup: Group =
                 { code: SimpleBarChartRaw.default, name: "SimpleBarChart.tsx" },
                 { code: SimpleBarChartConfig.default, name: "config.ts" },
             ],
+            status: "in-progress"
         }
     ]
 }

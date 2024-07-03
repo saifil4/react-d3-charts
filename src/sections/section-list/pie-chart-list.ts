@@ -12,6 +12,7 @@ const pieChartGroup: Group =
             files: [
                 { code: PieChartRaw.default, name: "SimplePieChart.tsx" }
             ],
+            status: "available"
         },
         {
             heading: "Donut Chart",
@@ -19,6 +20,7 @@ const pieChartGroup: Group =
             files: [
                 { code: PieChartRaw.default, name: "SimplePieChart.tsx" }
             ],
+            status: "in-progress"
         },
         {
             heading: "Multi Donut Chart",
@@ -26,6 +28,7 @@ const pieChartGroup: Group =
             files: [
                 { code: PieChartRaw.default, name: "SimplePieChart.tsx" }
             ],
+            status: "in-progress"
         }
     ]
 }

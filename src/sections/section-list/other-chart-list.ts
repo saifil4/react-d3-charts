@@ -17,6 +17,7 @@ const otherChartGroup: Group =
                 { code: SimpleSpiderChartRaw.default, name: "SimpleSpiderChart.tsx" },
                 { code: SimpleSpiderChartConfig.default, name: "config.ts" },
             ],
+            status: "in-progress"
         },
         {
             heading: "Scatter Plot Chart",
@@ -25,6 +26,7 @@ const otherChartGroup: Group =
                 { code: SimpleSpiderChartRaw.default, name: "SimpleSpiderChart.tsx" },
                 { code: SimpleSpiderChartConfig.default, name: "config.ts" },
             ],
+            status: "in-progress"
         },
         {
             heading: "Bubble Chart",
@@ -33,6 +35,7 @@ const otherChartGroup: Group =
                 { code: SimpleSpiderChartRaw.default, name: "SimpleSpiderChart.tsx" },
                 { code: SimpleSpiderChartConfig.default, name: "config.ts" },
             ],
+            status: "in-progress"
         },
     ]
 }

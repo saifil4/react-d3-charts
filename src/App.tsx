@@ -28,10 +28,10 @@ function App() {
             </TabPanel>
             {
               sectionList.map((group) => (
-                group.sections.map(({ heading, component, files }) => (
+                group.sections.map(({ heading, component, files, status }) => (
                   <TabPanel key={heading} p="10">
                     {selectedPanel === heading &&
-                      <ChartSection heading={heading} chart={component} files={files} />}
+                      <ChartSection isInProgress={status === 'in-progress'} heading={heading} chart={component} files={files} />}
                   </TabPanel>
                 ))
               ))
