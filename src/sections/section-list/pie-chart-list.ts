@@ -21,14 +21,6 @@ const pieChartGroup: Group =
                 { code: PieChartRaw.default, name: "SimplePieChart.tsx" }
             ],
             status: "in-progress"
-        },
-        {
-            heading: "Multi Donut Chart",
-            component: PieChart,
-            files: [
-                { code: PieChartRaw.default, name: "SimplePieChart.tsx" }
-            ],
-            status: "in-progress"
         }
     ]
 }
