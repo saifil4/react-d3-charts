@@ -2,14 +2,15 @@
 import * as d3 from "d3";
 import { motion } from "framer-motion";
 import { Axis } from "react-d3/components/Axis";
-import { lineChartData, TLineChart } from "react-d3/data/line-chart-data";
-import { useDimensions } from "react-d3/hooks/useDimensions";
+import { chartData, TLineChart } from "react-d3/data/line-chart-data";
 
 export default function LineChart() {
 
-    const { height, width, data, title } = lineChartData;
-    const { outerHeight, outerWidth, transform } = useDimensions(lineChartData);
-
+    const { height, width, data, title, margin } = chartData;
+    const outerWidth =  width + margin.left + margin.right;
+    const outerHeight = height + margin.top + margin.bottom;
+    const transform = `translate(${margin.left}px, ${margin.top}px)`;
+    
     const parseTime = d3.timeParse('%Y');
     const dateFormat = d3.timeFormat("%Y");
 
