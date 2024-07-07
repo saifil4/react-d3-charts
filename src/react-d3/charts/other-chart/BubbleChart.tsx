@@ -3,12 +3,13 @@ import * as d3 from "d3";
 import { motion } from "framer-motion";
 import { Axis } from "react-d3/components/Axis";
 import { bubbleChartData } from "react-d3/data/bubble-chart-data";
-import { useDimensions } from "react-d3/hooks/useDimensions";
 
 export default function BubbleChart() {
 
     const { height, width, data, title, margin } = bubbleChartData;
-    const { innerHeight, innerWidth, transform } = useDimensions(bubbleChartData);
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+    const transform = `translate(${margin.left}px, ${margin.top}px)`;
 
     const parseTime = d3.timeParse('%Y');
     const dateFormat = d3.timeFormat("%Y");

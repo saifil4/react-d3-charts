@@ -1,11 +1,11 @@
-import { TChart } from "./type"
+import { TChartAttributes } from "../type"
 
 export type TBubbleChart = {
     x: string,
     y: number
 }
 
-type TBubbleChartData = TChart & {
+type TBubbleChartData = TChartAttributes & {
     data: TBubbleChart[]
 }
 
