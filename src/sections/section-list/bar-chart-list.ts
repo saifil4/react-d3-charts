@@ -1,4 +1,5 @@
 import BarChart from 'react-d3/charts/bar-chart/BarChart';
+import StackedBarChart from 'react-d3/charts/bar-chart/StackedBarChart';
 import * as BarChartRaw from "react-d3/charts/bar-chart/BarChart?raw";
 import * as  barChartData from 'react-d3/data/bar-chart-data?raw';
 import { Group } from 'types/section.type';
@@ -18,16 +19,16 @@ const barChartGroup: Group =
             status: "available"
         },
         {
-            heading: "Grouped Bar Chart",
-            component: BarChart,
+            heading: "Stacked Bar Chart",
+            component: StackedBarChart,
             files: [
                 { code: BarChartRaw.default, name: "SimpleBarChart.tsx" },
                 { code: barChartData.default, name: "config.ts" },
             ],
-            status: "in-progress"
+            status: "available"
         },
         {
-            heading: "Stacked Bar Chart",
+            heading: "Grouped Bar Chart",
             component: BarChart,
             files: [
                 { code: BarChartRaw.default, name: "SimpleBarChart.tsx" },
