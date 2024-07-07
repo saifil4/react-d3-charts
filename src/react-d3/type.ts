@@ -1,4 +1,4 @@
-export type TChart = {
+export type TChartAttributes = {
     margin: {
         top: number,
         right: number,
