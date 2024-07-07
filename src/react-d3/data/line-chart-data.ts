@@ -1,15 +1,15 @@
-import { TChart } from "./type"
+import { TChartAttributes } from "react-d3/type"
 
 export type TLineChart = {
     x: string,
     y: number
 }
 
-type TLineChartData = TChart & {
+type TLineChartData = TChartAttributes & {
     data: TLineChart[]
 }
 
-export const lineChartData: TLineChartData = {
+export const chartData: TLineChartData = {
     margin: {
         top: 50,
         right: 50,
@@ -21,14 +21,14 @@ export const lineChartData: TLineChartData = {
     title: "Line Chart",
     data: [
         { x: '2010', y: 10 },
-        { x: "2011", y: 20 },
-        { x: "2012", y: 30 },
+        { x: "2011", y: 2.4 },
+        { x: "2012", y: 14 },
         { x: "2013", y: 40 },
-        { x: "2014", y: 50 },
+        { x: "2014", y: 24 },
         { x: "2015", y: 60 },
-        { x: "2016", y: 70 },
-        { x: "2017", y: 80 },
-        { x: "2018", y: 90 },
-        { x: "2019", y: 100 },
+        { x: "2016", y: 55 },
+        { x: "2017", y: 57 },
+        { x: "2018", y: 42 },
+        { x: "2019", y: 60 },
     ]
 }
