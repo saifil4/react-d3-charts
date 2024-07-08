@@ -53,7 +53,7 @@ export default function AreaChartWithTooltip() {
         <ResponsiveSVG viewBox={`0 0 ${outerWidth} ${outerHeight}`}>
 
             <g style={{ transform: transform }}>
-                <text x={width / 2} dy={-20} y={0} textAnchor="middle" style={{ fontSize: "16px", fontWeight: "bold" }}>{title}{isXVisible.toString()}</text>
+                <text x={width / 2} dy={-20} y={0} textAnchor="middle" style={{ fontSize: "16px", fontWeight: "bold" }}>{title}</text>
                 <Axis
                     orientation="bottom"
                     width={width}
