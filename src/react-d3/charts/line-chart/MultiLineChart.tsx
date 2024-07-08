@@ -8,7 +8,7 @@ import { Axis } from "react-d3/components/Axis";
 
 export default function MultiLineChart() {
 
-    const { height, width, data, title, margin } = chartData;
+    const { height, width, data, margin } = chartData;
     const outerWidth = width + margin.left + margin.right;
     const outerHeight = height + margin.top + margin.bottom;
     const transform = `translate(${margin.left}px, ${margin.top}px)`;
