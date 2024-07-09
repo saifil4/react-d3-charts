@@ -2,28 +2,28 @@
 import * as d3 from "d3";
 import { motion } from "framer-motion";
 import { Axis } from "react-d3/components/Axis";
-import { chartData, TLineChart } from "react-d3/data/line-chart-data";
+import { dummyStockData, TStock } from "react-d3/data/dummy-stock-data";
 
 export default function LineChart() {
 
-    const { height, width, data, title, margin } = chartData;
-    const outerWidth =  width + margin.left + margin.right;
+    const { height, width, data, title, margin } = dummyStockData;
+    const outerWidth = width + margin.left + margin.right;
     const outerHeight = height + margin.top + margin.bottom;
     const transform = `translate(${margin.left}px, ${margin.top}px)`;
-    
-    const parseTime = d3.timeParse('%Y');
-    const dateFormat = d3.timeFormat("%Y");
 
-    const yDomain = d3.extent(data, d => d.y) as Iterable<number>;
-    const xDomain = d3.extent(data, d => parseTime(d.x)) as Iterable<Date>;
+    const dateFormat = d3.timeFormat("%d-%b");
 
-    const xAxisScale = d3.scaleTime(xDomain, [0, width]);
-    const yAxisScale = d3.scaleLinear(yDomain, [height, 0]);
+    const yDomain = d3.extent(data, d => d.value) as Iterable<number>;
+    const xDomain = d3.extent(data, d => new Date(d.date)) as Iterable<Date>;
+
+    const xAxisScale = d3.scaleTime(xDomain, [0, width]).nice();
+    const yAxisScale = d3.scaleLinear(yDomain, [height, 0]).nice();
 
     const xTicks = xAxisScale.ticks(10)
     const yTicks = yAxisScale.ticks(10)
 
-    const line = d3.line<TLineChart>().x(d => xAxisScale(new Date(d.x))).y(d => yAxisScale(d.y));
+    const line = d3.line<TStock>().x(d => xAxisScale(new Date(d.date))).y(d => yAxisScale(d.value));
+
 
     return (
 
@@ -66,8 +66,8 @@ export default function LineChart() {
                             transition={{ duration: 1, delay: i * 1 / data.length }}
                             fill="#ff638490"
                             stroke="#ff6384"
-                            cx={xAxisScale(new Date(c.x))}
-                            cy={yAxisScale(c.y)} />
+                            cx={xAxisScale(new Date(c.date))}
+                            cy={yAxisScale(c.value)} />
                     ))}
                 </g>
 
