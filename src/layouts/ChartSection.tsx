@@ -26,7 +26,7 @@ const ChartSection: React.FC<Props> = ({ chart: Chart, heading, files, isInProgr
         <Box>
             <Heading as="h1">{heading}</Heading>
             <br />
-            <div style={{ background: "#F7F8F9", textAlign: 'center', borderRadius: '10px' }}>
+            <div style={{ background: "#f5f6fa", textAlign: 'center', borderRadius: '10px' }}>
                 <Chart />
             </div>
             <br />
