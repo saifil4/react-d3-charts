@@ -1,8 +1,9 @@
 import { TChartAttributes } from "../type"
 
 export type TBubbleChart = {
-    x: string,
-    y: number
+    x: number,
+    y: number,
+    size: number
 }
 
 type TBubbleChartData = TChartAttributes & {
@@ -16,19 +17,22 @@ export const bubbleChartData: TBubbleChartData = {
         bottom: 50,
         left: 50
     },
-    width: 800,
-    height: 400,
+    width: 700,
+    height: 300,
     title: "Line Chart",
     data: [
-        { x: '2010', y: 10 },
-        { x: "2011", y: 20 },
-        { x: "2012", y: 30 },
-        { x: "2013", y: 40 },
-        { x: "2014", y: 50 },
-        { x: "2015", y: 60 },
-        { x: "2016", y: 70 },
-        { x: "2017", y: 80 },
-        { x: "2018", y: 90 },
-        { x: "2019", y: 100 },
+        { x: 500, y: 43, size: 10 },
+        { x: 350, y: 15, size: 3 },
+        { x: 567, y: 25, size: 4 },
+        { x: 786, y: 87, size: 5 },
+        { x: 456, y: 78, size: 5 },
+        { x: 32, y: 12, size: 4 },
+        { x: 345, y: 89, size: 2 },
+        { x: 456, y: 35, size: 9.5 },
+        { x: 345, y: 45, size: 6.5 },
+        { x: 123, y: 67, size: 7 },
+        { x: 567, y: 18, size: 9 },
+        { x: 120, y: 23, size: 4.5 },
+        { x: 50, y: 12, size: 5 },
     ]
 }
