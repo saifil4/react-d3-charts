@@ -15,12 +15,9 @@ export default function BubbleChart() {
     const xDomain = d3.extent(data, d => d.x) as Iterable<number>;
     const zDomain = d3.extent(data, d => d.size) as Iterable<number>;
 
-    const xAxisScale = d3.scaleLinear(xDomain, [0, width]);
-    const yAxisScale = d3.scaleLinear(yDomain, [height, 0]);
+    const xAxisScale = d3.scaleLinear(xDomain, [0, width]).nice();
+    const yAxisScale = d3.scaleLinear(yDomain, [height, 0]).nice();
     const zAxisScale = d3.scaleLinear(zDomain, [5, 25]);
-
-    const xTicks = xAxisScale.ticks(10)
-    const yTicks = yAxisScale.ticks(10)
 
     return (
         <ResponsiveSVG viewBox={`0 0 ${outerWidth} ${outerHeight}`}>
@@ -30,7 +27,7 @@ export default function BubbleChart() {
                     orientation="bottom"
                     width={width}
                     height={height}>
-                    {xTicks.map((d) => (<>
+                    {xAxisScale.ticks().map((d) => (<>
                         <Text dy={15} x={xAxisScale(d)} y={0}> {d} </Text>
                         <Line y1={0} y2={-height} x1={xAxisScale(d)} x2={xAxisScale(d)} />
                     </>))}
@@ -39,7 +36,7 @@ export default function BubbleChart() {
                     orientation="left"
                     width={width}
                     height={height}>
-                    {yTicks.map((d) => (<>
+                    {yAxisScale.ticks().map((d) => (<>
                         <Text dx={-10} x={0} y={yAxisScale(d)}> {d} </Text>
                         <Line y1={yAxisScale(d)} y2={yAxisScale(d)} x1={width} x2={0} />
                     </>))}
