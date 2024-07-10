@@ -11,7 +11,7 @@ export default function BarChart() {
     const transform = `translate(${margin.left}px, ${margin.top}px)`;
 
     const yDomain = d3.extent(data.map(d => d.y)) as Iterable<number>;
-    const yAxisScale = d3.scaleLinear([0, d3.max(yDomain) as number], [height, 0]);
+    const yAxisScale = d3.scaleLinear([0, d3.max(yDomain) as number], [height, 0]).nice();
     const xAxisScale = d3.scaleBand(data.map(d => d.x), [0, width]).padding(0.1);
 
     const xTicks = xAxisScale.domain()
