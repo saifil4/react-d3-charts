@@ -34,7 +34,7 @@ export default function AreaChartWithTooltip() {
         .y1((d) => yAxisScale(d.value));
 
     const handleMouseMove = (event: any) => {
-        const [x_cord, y_cord] = d3.pointer(event);
+        const [x_cord] = d3.pointer(event);
 
         const bisector = d3.bisector((d: TStock) => parseTime(d.date)).right;
 

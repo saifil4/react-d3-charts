@@ -2,11 +2,11 @@
 import * as d3 from "d3";
 import { motion } from "framer-motion";
 import { Axis } from "react-d3/components/Axis";
-import { bubbleChartData, TBubbleChart } from "react-d3/data/bubble-chart-data";
+import { bubbleChartData } from "react-d3/data/bubble-chart-data";
 
 export default function BubbleChart() {
 
-    const { height, width, data, title, margin } = bubbleChartData;
+    const { height, width, data, margin } = bubbleChartData;
     const outerWidth = width + margin.left + margin.right;
     const outerHeight = height + margin.top + margin.bottom;
     const transform = `translate(${margin.left}px, ${margin.top}px)`;

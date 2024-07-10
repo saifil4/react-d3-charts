@@ -1,8 +1,9 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { FaHamburger, FaCross } from "react-icons/fa";
 
 export default function WithAction() {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
+  const isOpen = false;
 
   return (
     <div className="h-full border border-b-gray-100 px-4">
