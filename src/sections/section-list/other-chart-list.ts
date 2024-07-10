@@ -8,6 +8,7 @@ import { TChartSection } from "types";
 import AreaChart from "react-d3/charts/other-chart/AreaChart";
 import * as SimpleAreaChartRaw from "react-d3/charts//other-chart/AreaChart?raw";
 import * as AreaChartData from "react-d3/data/area-chart-data?raw";
+import AreaChartWithTooltip from "react-d3/charts/area-chart/AreaChartWithTooltip";
 
 export const otherChartGroup: TChartSection[] = [
     {
@@ -39,5 +40,15 @@ export const otherChartGroup: TChartSection[] = [
             { code: SimpleSpiderChartConfig.default, name: "config.ts" },
         ],
         status: "available"
+    },
+    {
+        group: 'other-chart',
+        heading: "Area Chart With Tooltip",
+        component: AreaChartWithTooltip,
+        files: [
+            { code: SimpleSpiderChartRaw.default, name: "SimpleSpiderChart.tsx" },
+            { code: SimpleSpiderChartConfig.default, name: "config.ts" },
+        ],
+        status: "in-progress"
     },
 ]
