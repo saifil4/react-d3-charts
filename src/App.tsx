@@ -15,9 +15,9 @@ function App() {
       <div className="h-16">
         <NavBar />
       </div>
-      <div className="h-calc(100% - 64px)">
-        <div className="grid grid-cols-[200px_auto] h-full">
-          <div className="xs:hidden">
+      <div className="h-[calc(100%-64px)] overflow-auto">
+        <div className="grid grid-cols-[225px_auto] h-full">
+          <div className="xs:hidden overflow-auto">
             <SideBar handleClick={handleClick} />
           </div>
           <main className="min-w-0 overflow-auto">
