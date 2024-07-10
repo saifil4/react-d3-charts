@@ -18,12 +18,8 @@ export default function LineChart() {
 
     const xAxisScale = d3.scaleTime(xDomain, [0, width]).nice();
     const yAxisScale = d3.scaleLinear(yDomain, [height, 0]).nice();
-
-    const xTicks = xAxisScale.ticks(10)
-    const yTicks = yAxisScale.ticks(10)
-
+    
     const line = d3.line<TStock>().x(d => xAxisScale(new Date(d.date))).y(d => yAxisScale(d.value));
-
 
     return (
 
@@ -34,7 +30,7 @@ export default function LineChart() {
                     orientation="bottom"
                     width={width}
                     height={height}>
-                    {xTicks.map((d) => (<>
+                    {xAxisScale.ticks().map((d) => (<>
                         <Text dy={15} x={xAxisScale(d)} y={0}> {dateFormat(d)} </Text>
                         <Line y1={0} y2={-height} x1={xAxisScale(d)} x2={xAxisScale(d)} />
                     </>))}
@@ -43,7 +39,7 @@ export default function LineChart() {
                     orientation="left"
                     width={width}
                     height={height}>
-                    {yTicks.map((d) => (<>
+                    {yAxisScale.ticks().map((d) => (<>
                         <Text dx={-10} x={0} y={yAxisScale(d)}> {d} </Text>
                         <Line y1={yAxisScale(d)} y2={yAxisScale(d)} x1={width} x2={0} />
                     </>))}

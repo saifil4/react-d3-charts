@@ -13,7 +13,7 @@ export default function StackedBarChart() {
     const yStack = data.map((d) => d.param1 + d.param2 + d.param3)
     const xStack = data.map((d) => d.name)
 
-    const yAxisScale = d3.scaleLinear([0, Math.max(...yStack)], [height, 0]);
+    const yAxisScale = d3.scaleLinear([0, Math.max(...yStack)], [height, 0]).nice();
     const xAxisScale = d3.scaleBand(xStack, [0, width]).padding(0.1);
 
     const xTicks = xAxisScale.domain()
