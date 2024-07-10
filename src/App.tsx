@@ -18,7 +18,7 @@ function App() {
       <div className="h-[calc(100%-64px)] overflow-auto">
         <div className="grid grid-cols-[225px_auto] h-full">
           <div className="xs:hidden overflow-auto">
-            <SideBar handleClick={handleClick} />
+            <SideBar selectedPanel={selectedPanel} handleClick={handleClick} />
           </div>
           <main className="min-w-0 overflow-auto">
             {selectedPanel === "getting-started" && (

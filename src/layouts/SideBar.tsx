@@ -3,20 +3,23 @@ import { TChartSection } from "types";
 
 type TSideBarProps = {
   handleClick: (sectionName: string) => void;
+  selectedPanel: string;
 };
 
-const SideBar: React.FC<TSideBarProps> = ({ handleClick }) => {
+const SideBar: React.FC<TSideBarProps> = ({ handleClick, selectedPanel }) => {
   const groups = ["line-chart", "bar-chart", "pie-chart", "other-chart"];
 
   return (
-    <nav className="flex flex-col overflow-auto w-full h-full py-7 px-4">
+    <nav className="flex flex-col w-full h-full my-7 px-4">
       <ChartLink
+        isSelected={selectedPanel === "getting-started"}
         key="getting-started"
         name="Getting Started"
         handleClick={() => handleClick("getting-started")}
       />
       {groups.map((group) => (
         <ChartGroup
+          selectedPanel={selectedPanel}
           key={group}
           name={group}
           sections={sectionList.filter(
@@ -26,6 +29,7 @@ const SideBar: React.FC<TSideBarProps> = ({ handleClick }) => {
         />
       ))}
       <ChartGroup
+        selectedPanel={selectedPanel}
         key="Coming Soon"
         name="Coming soon"
         sections={sectionList.filter((sl) => sl.status === "in-progress")}
@@ -41,10 +45,12 @@ const ChartGroup = ({
   name,
   sections,
   handleClick,
+  selectedPanel,
 }: {
   name: string;
   sections: TChartSection[];
   handleClick: (sectionName: string) => void;
+  selectedPanel: string;
 }) => {
   return (
     <>
@@ -54,6 +60,7 @@ const ChartGroup = ({
       </h2>
       {sections.map((section) => (
         <ChartLink
+          isSelected={section.heading === selectedPanel}
           key={section.heading}
           name={section.heading}
           handleClick={() => handleClick(section.heading)}
@@ -67,13 +74,22 @@ type TChartLinkProps = {
   key: string;
   name: string;
   handleClick: (key: string) => void;
+  isSelected: boolean;
 };
 
-const ChartLink: React.FC<TChartLinkProps> = ({ key, name, handleClick }) => {
+const ChartLink: React.FC<TChartLinkProps> = ({
+  key,
+  name,
+  handleClick,
+  isSelected,
+}) => {
   return (
     <a
       onClick={() => handleClick(key)}
-      className="py-2 px-4 text-sm font-medium text-gray-800 hover:bg-gray-100 hover:text-gray-900 cursor-pointer rounded-full"
+      href={"#" + name.replace(" ", "-")}
+      className={`py-2 px-4 text-sm font-medium text-gray-800 hover:bg-gray-100 cursor-pointer rounded-full ${
+        isSelected && "bg-blue-600 text-white hover:bg-blue-700"
+      }`}
     >
       {name}
     </a>
