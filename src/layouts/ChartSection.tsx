@@ -1,56 +1,68 @@
-import React from 'react';
-import { Heading, Box, Tabs, Tab, TabList, TabPanel, TabPanels } from '@chakra-ui/react';
-import CodeBlock from 'components/CodeBlock';
+import React, { useState } from "react";
+import CodeBlock from "components/CodeBlock";
 
 type Props = {
-    heading: string;
-    chart: React.FC<any>;
-    files: { code: string, name: string }[];
-    isInProgress: boolean;
-}
+  heading: string;
+  chart: React.FC<any>;
+  files: { code: string; name: string }[];
+  isInProgress: boolean;
+};
 
-const InProgressIndication: React.FC = () =>
-    <Box>
-        <br />
-        <div style={{ background: "#F7F8F9", textAlign: 'center', borderRadius: '10px' }}>
-            <Heading as="h1">In Progress</Heading>
-        </div>
-        <br />
-    </Box>
+const InProgressIndication: React.FC = () => (
+  <div>
+    <br />
+    <div
+      style={{
+        background: "#F7F8F9",
+        textAlign: "center",
+        borderRadius: "10px",
+      }}
+    >
+      <h1 className="font-bold text-4xl">In Progress</h1>
+    </div>
+    <br />
+  </div>
+);
 
-const ChartSection: React.FC<Props> = ({ chart: Chart, heading, files, isInProgress = true }) => {
+const ChartSection: React.FC<Props> = ({
+  chart: Chart,
+  heading,
+  files,
+  isInProgress = true,
+}) => {
+  if (isInProgress) return <InProgressIndication />;
 
-    if (isInProgress) return <InProgressIndication />
+  const [selectedFile, setSelectedFile] = useState(files[0].name || null);
 
-    return (
-        <Box>
-            <Heading as="h1">{heading}</Heading>
-            <br />
-            <div style={{ background: "#f5f6fa", textAlign: 'center', borderRadius: '10px' }}>
-                <Chart />
-            </div>
-            <br />
-            <Tabs borderRadius="10px" overflow="hidden" backgroundColor="#282a36">
-                <TabList backgroundColor="#2c3e50" borderBottom="none">
-                    {files.map((file) => (
-                        <Tab
-                            py="15px"
-                            color="white"
-                            _selected={{ borderBottom: "2px solid #85B8FF", color: "#85B8FF", fontWeight: "bold" }}
-                            key={file.name}>{file.name}</Tab>
-                    ))}
-                </TabList>
-                <TabPanels>
-                    {files.map((file) => (
-                        <TabPanel>
-                            <CodeBlock code={file.code} />
-                        </TabPanel>
-                    ))}
-                </TabPanels>
-            </Tabs>
-        </Box>
-    )
-}
-
+  return (
+    <>
+      <h1 className="font-bold text-4xl">{heading}</h1>
+      <br />
+      <div className="bg-gray-100 text-center rounded-xl">
+        <Chart />
+      </div>
+      <br />
+      <div className="rounded-xl overflow-hidden bg-gray-700">
+        <ul className=" flex px-5">
+          {files.map((file) => (
+            <li
+              className={`px-5 py-3 text-white ${
+                file.name === selectedFile && "border-b-4 border-b-cyan-600"
+              }`}
+              key={file.name}
+            >
+              <button onClick={() => setSelectedFile(file.name)}>
+                {file.name}
+              </button>
+            </li>
+          ))}
+        </ul>
+        {files.map(
+          (file) => file.name === selectedFile && <CodeBlock code={file.code} />
+        )}
+      </div>
+    </>
+  );
+};
 
 export default ChartSection;
