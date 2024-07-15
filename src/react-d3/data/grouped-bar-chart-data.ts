@@ -1,4 +1,4 @@
-import { TChartAttributes } from "react-d3/type"
+import { TChart } from "react-d3/type"
 
 export type TStackedBarChart = {
     name: string,
@@ -7,11 +7,7 @@ export type TStackedBarChart = {
     param3: number
 }
 
-type TStackedBarChartData = TChartAttributes & {
-    data: TStackedBarChart[]
-}
-
-export const chartData: TStackedBarChartData = {
+export const chartData: TChart<TStackedBarChart> = {
     margin: {
         top: 50,
         right: 50,

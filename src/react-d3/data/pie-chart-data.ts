@@ -1,19 +1,11 @@
-import { TChartAttributes } from "../type"
-
-export const width = 450,
-    height = 450,
-    margin = 40;
+import { TChart } from "../type"
 
 export type TPieChart = {
     name: string,
     value: number
 }
 
-type TPieChartData = TChartAttributes & {
-    data: TPieChart[]
-}
-
-export const pieChartData: TPieChartData = {
+export const pieChartData: TChart<TPieChart> = {
     margin: {
         top: 50,
         right: 50,

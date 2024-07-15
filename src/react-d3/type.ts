@@ -1,4 +1,4 @@
-export type TChartAttributes = {
+export type TChart<Data> = {
     margin: {
         top: number,
         right: number,
@@ -8,5 +8,7 @@ export type TChartAttributes = {
     width: number,
     height: number,
     title: string,
+    data: Data[]
 }
+
 

@@ -1,15 +1,11 @@
-import { TChartAttributes } from "react-d3/type"
+import { TChart } from "react-d3/type"
 
 export type TBarChart = {
     x: string,
     y: number
 }
 
-type TBarChartData = TChartAttributes & {
-    data: TBarChart[]
-}
-
-export const chartData: TBarChartData = {
+export const chartData: TChart<TBarChart> = {
     margin: {
         top: 50,
         right: 50,

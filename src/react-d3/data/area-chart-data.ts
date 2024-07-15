@@ -1,15 +1,11 @@
-import { TChartAttributes } from "react-d3/type"
+import { TChart } from "react-d3/type"
 
 export type TLineChart = {
     x: string,
     y: number
 }
 
-type TLineChartData = TChartAttributes & {
-    data: TLineChart[]
-}
-
-export const chartData: TLineChartData = {
+export const chartData: TChart<TLineChart> = {
     margin: {
         top: 50,
         right: 50,

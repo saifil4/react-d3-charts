@@ -1,15 +1,11 @@
-import { TChartAttributes } from "react-d3/type"
+import { TChart } from "react-d3/type"
 
 export type TStock = {
     date: string,
     value: number
 }
 
-type TStockPlot = TChartAttributes & {
-    data: TStock[]
-}
-
-export const dummyStockData: TStockPlot = {
+export const dummyStockData: TChart<TStock> = {
     margin: {
         top: 50,
         right: 50,

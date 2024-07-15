@@ -1,4 +1,4 @@
-import { TChartAttributes } from 'react-d3/type';
+import { TChart } from 'react-d3/type';
 
 export type TPlot = { x: string, y: number }
 
@@ -11,11 +11,7 @@ type TRevenue = {
     plot: TRevenuePlot[]
 }
 
-type TRevenueData = TChartAttributes & {
-    data: TRevenue[]
-}
-
-export const revenueData: TRevenueData = {
+export const revenueData: TChart<TRevenue>  = {
     margin: {
         top: 50,
         right: 60,

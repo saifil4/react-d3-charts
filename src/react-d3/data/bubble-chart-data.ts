@@ -1,4 +1,4 @@
-import { TChartAttributes } from "../type"
+import { TChart } from "../type"
 
 export type TBubbleChart = {
     x: number,
@@ -6,11 +6,7 @@ export type TBubbleChart = {
     size: number
 }
 
-type TBubbleChartData = TChartAttributes & {
-    data: TBubbleChart[]
-}
-
-export const bubbleChartData: TBubbleChartData = {
+export const bubbleChartData: TChart<TBubbleChart> = {
     margin: {
         top: 50,
         right: 50,
