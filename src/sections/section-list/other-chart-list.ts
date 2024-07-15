@@ -6,8 +6,10 @@ import BubbleChart from "react-d3/charts/other-chart/BubbleChart";
 import { TChartSection } from "types";
 
 import AreaChart from "react-d3/charts/other-chart/AreaChart";
+
+import * as DummyStockDataRaw from "react-d3/data/dummy-stock-data?raw";
+
 import * as SimpleAreaChartRaw from "react-d3/charts//other-chart/AreaChart?raw";
-import * as AreaChartData from "react-d3/data/area-chart-data?raw";
 import AreaChartWithTooltip from "react-d3/charts/area-chart/AreaChartWithTooltip";
 
 export const otherChartGroup: TChartSection[] = [
@@ -17,7 +19,7 @@ export const otherChartGroup: TChartSection[] = [
         component: AreaChart,
         files: [
             { code: SimpleAreaChartRaw.default, name: "SimpleAreaChart.tsx" },
-            { code: AreaChartData.default, name: "area-chart-data.ts" },
+            { code: DummyStockDataRaw.default, name: "dummy-stock-data.ts" },
         ],
         status: "available"
     },
