@@ -1,7 +1,7 @@
 
 import * as d3 from "d3";
 import { motion } from "framer-motion";
-import { revenueData, TRevenuePlot } from "react-d3/data/dummy-revenue-data";
+import { revenueData, TRevenuePlot } from "react-d3/data/revenue-historic-data";
 import { Axis } from "react-d3/components/Axis";
 
 export default function MultiLineChart() {

@@ -2,7 +2,7 @@
 import * as d3 from "d3";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { dummyStockData, TStock } from "react-d3/data/dummy-stock-data";
+import { dummyStockData, TStock } from "react-d3/data/stock-data";
 import { Axis } from "react-d3/components/Axis";
 
 

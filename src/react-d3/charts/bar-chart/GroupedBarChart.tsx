@@ -1,27 +1,26 @@
 import * as d3 from "d3";
 import { motion } from "framer-motion";
-import { chartData } from "react-d3/data/grouped-bar-chart-data";
+import { revenueSplitData } from "react-d3/data/revenue-split-data";
 import { Axis } from "react-d3/components/Axis";
 
 export default function GroupedBarChart() {
 
-    const { height, width, data, title, margin } = chartData;
+    const { height, width, data, title, margin } = revenueSplitData;
     const outerWidth = width + margin.left + margin.right;
     const outerHeight = height + margin.top + margin.bottom;
     const transform = `translate(${margin.left}px, ${margin.top}px)`;
 
-    const subGroups = ["param1", "param2", "param3"]
+    const subGroups = ["ad_revenue", "product_sales", "service_revenue"]
 
-    const yStack = data.map((d) => [d.param1, d.param2, d.param3]).flat()
+    const yStack = data.map((d) => [d.ad_revenue, d.product_sales, d.service_revenue]).flat()
     const xStack = data.map((d) => d.name)
 
-    const yAxisScale = d3.scaleLinear([0, Math.max(...yStack)], [height, 0]);
-    const xAxisScale = d3.scaleBand(xStack, [0, width]).padding(0.1);
+    const yAxisScale = d3.scaleLinear([1, Math.max(...yStack)], [height, 0]);
+    const xAxisScale = d3.scaleBand(xStack, [1, width]).padding(0.1);
 
     var xSubgroup = d3.scaleBand()
         .domain(subGroups)
         .range([0, xAxisScale.bandwidth()])
-        .padding(0.05)
 
     const xTicks = xAxisScale.domain()
     const yTicks = yAxisScale.ticks(10)
@@ -52,20 +51,20 @@ export default function GroupedBarChart() {
                     data.map((d) => (
                         <g transform={`translate(${xAxisScale(d.name)},0)`}>
                             <motion.rect
-                                initial={{ height: 0, y: height,  x: xSubgroup("param1") }}
-                                animate={{ height: height - yAxisScale(d.param1), y: yAxisScale(d.param1)}}
+                                initial={{ height: 0, y: height,  x: xSubgroup("ad_revenue") }}
+                                animate={{ height: height - yAxisScale(d.ad_revenue), y: yAxisScale(d.ad_revenue)}}
                                 transition={{ duration: 1 }}
                                 width={xSubgroup.bandwidth()} 
                                 fill="#69b3a2" />
                             <motion.rect
-                                initial={{ height: 0, y: height,  x: xSubgroup("param2") }}
-                                animate={{ height: height - yAxisScale(d.param2), y: yAxisScale(d.param2) }}
+                                initial={{ height: 0, y: height,  x: xSubgroup("product_sales") }}
+                                animate={{ height: height - yAxisScale(d.product_sales), y: yAxisScale(d.product_sales) }}
                                 transition={{ duration: 1 }}
                                 width={xSubgroup.bandwidth()} 
                                 fill="red" />
                             <motion.rect
-                                initial={{ height: 0, y: height, x: xSubgroup("param3") }}
-                                animate={{ height: height - yAxisScale(d.param3), y: yAxisScale(d.param3) }}
+                                initial={{ height: 0, y: height, x: xSubgroup("service_revenue") }}
+                                animate={{ height: height - yAxisScale(d.service_revenue), y: yAxisScale(d.service_revenue) }}
                                 transition={{ duration: 1 }}
                                 width={xSubgroup.bandwidth()} 
                                 fill="blue" />

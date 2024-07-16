@@ -4,7 +4,7 @@ import * as AxisRaw from "react-d3/components/Axis?raw";
 
 import LineChart from "react-d3/charts/line-chart/LineChart";
 import * as LineChartRaw from "react-d3/charts/line-chart/LineChart?raw";
-import * as DummyStockDataRaw from "react-d3/data/dummy-stock-data?raw";
+import * as StockDataRaw from "react-d3/data/stock-data?raw";
 
 import MultiLineChart from "react-d3/charts/line-chart/MultiLineChart";
 import * as MultiLineChartRaw from "react-d3/charts/line-chart/MultiLineChart?raw";
@@ -19,7 +19,7 @@ const lineChartGroup: TChartSection[] = [
         files: [
             { code: LineChartRaw.default, name: "LineChart.tsx" },
             { code: AxisRaw.default, name: "Axis.tsx" },
-            { code: DummyStockDataRaw.default, name: "line-chart-data.ts" },
+            { code: StockDataRaw.default, name: "line-chart-data.ts" },
             { code: TChartAttributes.default, name: "type.ts" },
         ],
         status: "available"

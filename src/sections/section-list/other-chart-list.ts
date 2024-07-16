@@ -7,7 +7,7 @@ import { TChartSection } from "types";
 
 import AreaChart from "react-d3/charts/other-chart/AreaChart";
 
-import * as DummyStockDataRaw from "react-d3/data/dummy-stock-data?raw";
+import * as StockDataRaw from "react-d3/data/stock-data?raw";
 
 import * as SimpleAreaChartRaw from "react-d3/charts//other-chart/AreaChart?raw";
 import AreaChartWithTooltip from "react-d3/charts/area-chart/AreaChartWithTooltip";
@@ -19,7 +19,7 @@ export const otherChartGroup: TChartSection[] = [
         component: AreaChart,
         files: [
             { code: SimpleAreaChartRaw.default, name: "SimpleAreaChart.tsx" },
-            { code: DummyStockDataRaw.default, name: "dummy-stock-data.ts" },
+            { code: StockDataRaw.default, name: "dummy-stock-data.ts" },
         ],
         status: "available"
     },
