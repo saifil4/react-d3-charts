@@ -1,6 +1,6 @@
-import SimpleSpiderChart from "react-d3/charts/other-chart/spider-chart";
-import * as SimpleSpiderChartRaw from "react-d3/charts/other-chart/spider-chart?raw";
-import * as SimpleSpiderChartConfig from "react-d3/charts/other-chart/spider-chart/config?raw";
+import SpiderChart from "react-d3/charts/other-chart/SpiderChart";
+import * as SimpleSpiderChartRaw from "react-d3/charts/other-chart/SpiderChart?raw";
+// import * as SimpleSpiderChartConfig from "react-d3/charts/other-chart/spider-chart/config?raw";
 
 import BubbleChart from "react-d3/charts/other-chart/BubbleChart";
 import { TChartSection } from "types";
@@ -25,11 +25,11 @@ export const otherChartGroup: TChartSection[] = [
     },
     {
         group: 'other-chart',
-        heading: "Simple Spider Chart",
-        component: SimpleSpiderChart,
+        heading: "Spider Chart",
+        component: SpiderChart,
         files: [
             { code: SimpleSpiderChartRaw.default, name: "SimpleSpiderChart.tsx" },
-            { code: SimpleSpiderChartConfig.default, name: "config.ts" },
+            { code: 'SimpleSpiderChartConfig.default', name: "config.ts" },
         ],
         status: "available"
     },
@@ -39,7 +39,7 @@ export const otherChartGroup: TChartSection[] = [
         component: BubbleChart,
         files: [
             { code: SimpleSpiderChartRaw.default, name: "SimpleSpiderChart.tsx" },
-            { code: SimpleSpiderChartConfig.default, name: "config.ts" },
+            { code: 'SimpleSpiderChartConfig.default', name: "config.ts" },
         ],
         status: "available"
     },
@@ -49,7 +49,7 @@ export const otherChartGroup: TChartSection[] = [
         component: AreaChartWithTooltip,
         files: [
             { code: SimpleSpiderChartRaw.default, name: "SimpleSpiderChart.tsx" },
-            { code: SimpleSpiderChartConfig.default, name: "config.ts" },
+            { code: 'SimpleSpiderChartConfig.default', name: "config.ts" },
         ],
         status: "in-progress"
     },
