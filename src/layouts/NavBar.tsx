@@ -1,14 +1,16 @@
 // import { useState } from "react";
 import { FaHamburger, FaCross } from "react-icons/fa";
 
-export default function WithAction() {
+export default function WithAction(toggleSideBar: {
+  toggleSideBar: () => void;
+}) {
   // const [isOpen, setIsOpen] = useState(false);
   const isOpen = false;
 
   return (
     <div className="h-full border border-b-gray-100 px-4">
       <div className="h-full flex items-center justify-between">
-        <button className="sm:hidden">
+        <button className="sm:hidden" onClick={() => toggleSideBar}>
           {isOpen ? <FaCross /> : <FaHamburger />}
         </button>
         <div className="flex items-center gap-2">

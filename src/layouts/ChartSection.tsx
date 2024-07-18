@@ -27,12 +27,12 @@ const ChartSection: React.FC<Props> = ({
   return (
     <>
       <div className="flex items-center gap-3">
-        <h1 className="font-bold text-3xl">{heading}</h1>
+        <h1 className="font-bold sm:text-3xl text-2xl">{heading}</h1>
         {isInProgress && <InProgressIndication />}
       </div>
 
       <br />
-      <div className="bg-gray-100 text-center rounded-xl">
+      <div className="bg-gray-100 text-center rounded sm:rounded-xl">
         <Chart />
       </div>
       <br />
