@@ -3,8 +3,21 @@ import { motion } from "framer-motion";
 import { revenueSplitData } from "react-d3/data/revenue-split-data";
 import { Axis } from "react-d3/components/Axis";
 
+const chartData = {
+  margin: {
+    top: 50,
+    right: 50,
+    bottom: 50,
+    left: 50,
+  },
+  width: 700,
+  height: 250,
+  title: "Comparing revenue sources of 10 companies",
+  data: revenueSplitData,
+};
+
 export default function StackedBarChart() {
-  const { height, width, data, title, margin } = revenueSplitData;
+  const { height, width, data, title, margin } = chartData;
   const outerWidth = width + margin.left + margin.right;
   const outerHeight = height + margin.top + margin.bottom;
   const transform = `translate(${margin.left}px, ${margin.top}px)`;

@@ -8,7 +8,6 @@ import * as StockDataRaw from "react-d3/data/stock-data?raw";
 
 import MultiLineChart from "react-d3/charts/line-chart/MultiLineChart";
 import * as MultiLineChartRaw from "react-d3/charts/line-chart/MultiLineChart?raw";
-import * as MultiLineChartData from "react-d3/data/multi-line-chart-data?raw";
 
 
 const lineChartGroup: TChartSection[] = [
@@ -30,7 +29,7 @@ const lineChartGroup: TChartSection[] = [
         component: MultiLineChart,
         files: [
             { code: MultiLineChartRaw.default, name: "MultiLineChart.tsx" },
-            { code: MultiLineChartData.default, name: "config.ts" },
+            { code: 'MultiLineChartData.default', name: "config.ts" },
         ],
         status: "available"
     },

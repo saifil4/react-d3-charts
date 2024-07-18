@@ -1,10 +1,23 @@
 import * as d3 from "d3";
 import { motion } from "framer-motion";
 import { Axis } from "react-d3/components/Axis";
-import { dummyStockData, TStock } from "react-d3/data/stock-data";
+import { stockData, TStock } from "react-d3/data/stock-data";
+
+const chartData = {
+  margin: {
+    top: 50,
+    right: 50,
+    bottom: 50,
+    left: 50,
+  },
+  width: 700,
+  height: 250,
+  title: "Dummy Stock Chart",
+  data: stockData,
+};
 
 export default function LineChart() {
-  const { height, width, data, title, margin } = dummyStockData;
+  const { height, width, data, title, margin } = chartData;
   const outerWidth = width + margin.left + margin.right;
   const outerHeight = height + margin.top + margin.bottom;
   const transform = `translate(${margin.left}px, ${margin.top}px)`;

@@ -1,20 +1,34 @@
 import * as d3 from "d3";
 import { motion } from "framer-motion";
-import { revenueData, TRevenuePlot } from "react-d3/data/revenue-historic-data";
+import {
+  revenueData,
+  TRevenuePlot,
+} from "react-d3/data/revenue-historic-data";
 import { Axis } from "react-d3/components/Axis";
 import { Legend } from "react-d3/components/Legends";
 
+const chartData = {
+  margin: {
+    top: 50,
+    right: 60,
+    bottom: 70,
+    left: 60,
+  },
+  width: 700,
+  height: 250,
+  title: "Dummy Revenue Chart",
+  data: revenueData,
+};
+
 export default function MultiLineChart() {
-  const { height, width, data, margin, title } = revenueData;
+  const { height, width, data, margin, title } = chartData;
   const outerWidth = width + margin.left + margin.right;
   const outerHeight = height + margin.top + margin.bottom;
   const transform = `translate(${margin.left}px, ${margin.top}px)`;
 
   const legendPos = margin.top + height + margin.bottom / 2;
 
-  const color = d3
-    .scaleOrdinal()
-    .range(["#388BFF", "#8F7EE7", "#DA62AC"]);
+  const color = d3.scaleOrdinal().range(["#388BFF", "#8F7EE7", "#DA62AC"]);
 
   const parseTime = d3.timeParse("%B");
   const dateFormat = d3.timeFormat("%b");
