@@ -7,13 +7,12 @@ type CodeBlockProps = {
 }
 
 const CodeBlock: React.FC<CodeBlockProps> = ({ code }) => {
-    const codeString = code;
     return (
         <div style={{ width: "100%" }}>
             <SyntaxHighlighter
                 customStyle={{ borderRadius: "10px", fontSize: "14px"}}
                 showLineNumbers={true} language="typescript" style={dracula}>
-                {codeString}
+                {code}
             </SyntaxHighlighter>
         </div>
     );
