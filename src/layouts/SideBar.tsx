@@ -10,7 +10,7 @@ const SideBar: React.FC<TSideBarProps> = ({ handleClick, selectedPanel }) => {
   const groups = ["line-chart", "bar-chart", "pie-chart", "other-chart"];
 
   return (
-    <nav className="flex flex-col w-full h-full my-7 px-4">
+    <nav className="flex flex-col w-full py-5 px-4">
       <ChartLink
         isSelected={selectedPanel === "getting-started"}
         key="getting-started"
@@ -87,8 +87,10 @@ const ChartLink: React.FC<TChartLinkProps> = ({
     <a
       onClick={() => handleClick(key)}
       href={"#" + name.replace(" ", "-")}
-      className={`py-2 px-4 text-sm font-medium text-gray-800 hover:bg-gray-100 cursor-pointer rounded-full ${
-        isSelected && "bg-blue-600 text-white hover:bg-blue-700"
+      className={`py-2 px-4 text-sm font-medium cursor-pointer rounded-full ${
+        isSelected
+          ? "bg-blue-600 text-white hover:bg-blue-700"
+          : "bg-transparent text-gray-800 hover:bg-gray-100"
       }`}
     >
       {name}
