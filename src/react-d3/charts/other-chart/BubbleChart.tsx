@@ -85,8 +85,8 @@ export default function BubbleChart() {
               initial={{ r: 0 }}
               animate={{ r: zAxisScale(c.time) }}
               transition={{ duration: 0.5, delay: (i * 0.5) / data.length }}
-              fill="#ff638490"
-              stroke="#ff6384"
+              fill="#388BFF90"
+              stroke="#388BFF"
               cx={xAxisScale(new Date(c.effort))}
               cy={yAxisScale(c.impact)}
             />

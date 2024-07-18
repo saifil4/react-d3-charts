@@ -47,7 +47,7 @@ export default function BarChart() {
                                 animate={{ height: height - yAxisScale(d.y), y: yAxisScale(d.y) }}
                                 transition={{ duration: 1 }}
                                 x={xAxisScale(d.x)}
-                                width={xAxisScale.bandwidth()} fill="#69b3a2" />
+                                width={xAxisScale.bandwidth()} fill="#388BFF" />
                         </g>
                     ))
                 }

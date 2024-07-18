@@ -15,7 +15,7 @@ export const revenueData: TChart<TRevenue>  = {
     margin: {
         top: 50,
         right: 60,
-        bottom: 20,
+        bottom: 70,
         left: 60
     },
     width: 700,

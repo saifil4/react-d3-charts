@@ -9,6 +9,10 @@ export default function StackedBarChart() {
   const outerHeight = height + margin.top + margin.bottom;
   const transform = `translate(${margin.left}px, ${margin.top}px)`;
 
+  const color = d3
+    .scaleOrdinal()
+    .range(["#579DFF", "#1D7AFC", "#0055CC"]);
+
   const yStack = data.map(
     (d) => d.ad_revenue + d.product_sales + d.product_sales
   );
@@ -70,7 +74,7 @@ export default function StackedBarChart() {
               transition={{ duration: 1 }}
               x={xAxisScale(d.name)}
               width={xAxisScale.bandwidth()}
-              fill="#69b3a2"
+              fill={color(d.name + d.ad_revenue) as string}
             />
             <motion.rect
               initial={{ height: 0, y: height }}
@@ -81,7 +85,7 @@ export default function StackedBarChart() {
               transition={{ duration: 1 }}
               x={xAxisScale(d.name)}
               width={xAxisScale.bandwidth()}
-              fill="red"
+              fill={color(d.name + d.product_sales) as string}
             />
             <motion.rect
               initial={{ height: 0, y: height }}
@@ -94,7 +98,7 @@ export default function StackedBarChart() {
               transition={{ duration: 1 }}
               x={xAxisScale(d.name)}
               width={xAxisScale.bandwidth()}
-              fill="blue"
+              fill={color(d.name + d.service_revenue) as string}
             />
           </g>
         ))}

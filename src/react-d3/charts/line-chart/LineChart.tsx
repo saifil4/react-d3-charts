@@ -60,7 +60,7 @@ export default function LineChart() {
             animate={{ pathLength: 1 }}
             transition={{ duration: 1 }}
             fill="none"
-            stroke="#ff6384"
+            stroke="#388BFF"
             strokeWidth={2}
             d={line(data) || undefined}
           />
@@ -70,8 +70,8 @@ export default function LineChart() {
               initial={{ r: 0 }}
               animate={{ r: 5 }}
               transition={{ duration: 1, delay: (i * 1) / data.length }}
-              fill="#ff638490"
-              stroke="#ff6384"
+              fill="#388BFF90"
+              stroke="#388BFF"
               cx={xAxisScale(new Date(c.date))}
               cy={yAxisScale(c.value)}
             />
