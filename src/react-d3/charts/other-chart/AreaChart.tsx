@@ -76,12 +76,12 @@ export default function AreaChart() {
             initial={{
               d:
                 area(
-                  data.map((d) => ({ ...d, y: d3.min(yDomain) as number }))
+                  data.map((d) => ({ ...d, value: d3.min(yDomain) as number }))
                 ) || undefined,
             }}
             animate={{ d: area(data.map((d) => d)) || undefined }}
             transition={{ duration: 1 }}
-            fill="#ff6384"
+            fill="#388BFF"
           />
         </g>
       </g>
