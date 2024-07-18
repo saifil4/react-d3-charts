@@ -1,5 +1,5 @@
-import PieChart from "react-d3/charts/pie-chart/simple-pie-chart"
-import * as PieChartRaw from "react-d3/charts/pie-chart/simple-pie-chart?raw"
+import PieChart from "react-d3/charts/pie-chart/PieChart"
+import * as PieChartRaw from "react-d3/charts/pie-chart/PieChart?raw"
 import { TChartSection } from "types"
 
 const pieChartGroup: TChartSection[] = [
