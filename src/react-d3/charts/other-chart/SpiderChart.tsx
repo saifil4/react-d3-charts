@@ -2,12 +2,13 @@ import React from "react";
 import * as d3 from "d3";
 import { motion } from "framer-motion";
 import { carData, TCar } from "react-d3/data/car-spec-data";
+import { Legend } from "react-d3/components/Legends";
 
 const chartData = {
   margin: {
     top: 20,
     right: 20,
-    bottom: 20,
+    bottom: 50,
     left: 20,
   },
   width: 400,
@@ -22,6 +23,7 @@ const SpiderChart: React.FC = () => {
   const outerHeight = height + margin.top + margin.bottom;
   const radius = Math.min(width, height) / 2;
   const transform = `translate(${margin.left}px, ${margin.top}px)`;
+  const legendPos = margin.top + height;
 
   const parameterKeys = Object.keys(data[0]).filter((key) => key !== "name");
   const color = d3.scaleOrdinal<string>().range(["#2898BD", "#CD519D", "#B38600"]);
@@ -108,6 +110,11 @@ const SpiderChart: React.FC = () => {
           />
         ))}
       </g>
+      <g style={{ transform: `translate(0px, ${legendPos}px)` }}>
+          <foreignObject height={20} width={outerWidth}>
+            <Legend color={color} legendList={data.map((d) => d.name)} />
+          </foreignObject>
+        </g>
     </svg>
   );
 };
