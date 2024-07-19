@@ -4,42 +4,52 @@ import ChartSection from "layouts/ChartSection";
 import GettingStarted from "sections/GettingStarted";
 import SideBar from "layouts/SideBar";
 import NavBar from "layouts/NavBar";
+import SideBarMobile from "layouts/SideBarMobile";
 
 function App() {
   const [isSideBarOpen, setIsSideBarOpen] = useState<boolean>(false);
-  const [selectedPanel, setSelectedPanel] = useState<string>("getting-started");
+  const [selectedSection, setSelectedSection] =
+    useState<string>("getting-started");
 
-  const handleClick = (panel: string) => setSelectedPanel(panel);
+  const changeSection = (section: string) => setSelectedSection(section);
+
+  const changeSectionMobile = (section: string) => {
+    changeSection(section);
+    setIsSideBarOpen(false);
+  }
+
   const toggleSideBar = () => setIsSideBarOpen(!isSideBarOpen);
 
   return (
     <div className="h-full">
       <div className="h-16">
-        <NavBar toggleSideBar={toggleSideBar} />
+        <NavBar toggleSideBar={toggleSideBar} isSideBarOpen={isSideBarOpen} />
       </div>
       <div className="h-[calc(100%-64px)] overflow-auto">
         <div className="grid sm:grid-cols-[225px_auto] h-full">
-          <div className="hidden sm:block overflow-auto">
-            <SideBar selectedPanel={selectedPanel} handleClick={handleClick} />
+          <div className="overflow-auto hidden sm:block">
+            <SideBar
+              selectedSection={selectedSection}
+              changeSection={changeSection}
+            />
           </div>
-          {isSideBarOpen && (
-            <div className="overflow-auto absolute">
-              <SideBar
-                selectedPanel={selectedPanel}
-                handleClick={handleClick}
-              />
-            </div>
-          )}
+          <div className="overflow-auto absolute w-3/4 bg-white shadow">
+            <SideBarMobile
+              isSideBarOpen={isSideBarOpen}
+              selectedSection={selectedSection}
+              changeSection={changeSectionMobile}
+            />
+          </div>
 
           <main className="min-w-0 overflow-auto">
-            {selectedPanel === "getting-started" && (
+            {selectedSection === "getting-started" && (
               <div className="sm:p-10 p-5">
                 <GettingStarted />
               </div>
             )}
             {sectionList.map(
               ({ heading, component, files, status }) =>
-                selectedPanel === heading && (
+                selectedSection === heading && (
                   <div className="sm:p-10 p-5">
                     <ChartSection
                       isInProgress={status === "in-progress"}
