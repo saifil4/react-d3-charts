@@ -1,6 +1,6 @@
 import * as d3 from "d3";
 import { motion } from "framer-motion";
-import { revenueSplitData } from "react-d3/data/revenue-split-data";
+import { revenueSplitData, TRevenueSplitParameters } from "react-d3/data/revenue-split-data";
 import { Axis } from "react-d3/components/Axis";
 import { Legend } from "react-d3/components/Legends";
 
@@ -32,7 +32,8 @@ export default function StackedBarChart() {
   const xStack = data.map((d) => d.name);
 
   const subGroups = Object.keys(data[0]).filter((d) => d !== "name");
-  const subGroupNames = {
+
+  const subGroupNames: TRevenueSplitParameters = {
     ad_revenue: "Ad Revenue",
     product_sales: "Product Sales",
     service_revenue: "Service Revenue",
@@ -125,7 +126,7 @@ export default function StackedBarChart() {
       </g>
       <g style={{ transform: `translate(0px, ${legendPos}px)` }}>
         <foreignObject height={20} width={outerWidth}>
-        <Legend color={color} legendList={subGroups.map((d) => subGroupNames[d])} />
+        <Legend color={color} legendList={subGroups.map((d) => subGroupNames[d as keyof TRevenueSplitParameters])} />
         </foreignObject>
       </g>
     </ResponsiveSVG>

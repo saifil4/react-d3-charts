@@ -1,6 +1,9 @@
 import * as d3 from "d3";
 import { motion } from "framer-motion";
-import { revenueSplitData } from "react-d3/data/revenue-split-data";
+import {
+  revenueSplitData,
+  TRevenueSplitParameters,
+} from "react-d3/data/revenue-split-data";
 import { Axis } from "react-d3/components/Axis";
 import { Legend } from "react-d3/components/Legends";
 
@@ -24,12 +27,11 @@ export default function GroupedBarChart() {
   const transform = `translate(${margin.left}px, ${margin.top}px)`;
   const legendPos = margin.top + height + margin.bottom / 2;
 
-  const color = d3
-    .scaleOrdinal()
-    .range(["#579DFF", "#1D7AFC", "#0055CC"]);
+  const color = d3.scaleOrdinal().range(["#579DFF", "#1D7AFC", "#0055CC"]);
 
   const subGroups = Object.keys(data[0]).filter((d) => d !== "name");
-  const subGroupNames = {
+  
+  const subGroupNames: TRevenueSplitParameters = {
     ad_revenue: "Ad Revenue",
     product_sales: "Product Sales",
     service_revenue: "Service Revenue",
@@ -83,8 +85,7 @@ export default function GroupedBarChart() {
           {yTicks.map((d) => (
             <>
               <Text dx={-10} x={0} y={yAxisScale(d)}>
-                {" "}
-                {d}{" "}
+                {d}
               </Text>
               <Line y1={yAxisScale(d)} y2={yAxisScale(d)} x1={0} x2={width} />
             </>
@@ -130,10 +131,15 @@ export default function GroupedBarChart() {
         ))}
       </g>
       <g style={{ transform: `translate(0px, ${legendPos}px)` }}>
-          <foreignObject height={20} width={outerWidth}>
-            <Legend color={color} legendList={subGroups.map((d) => subGroupNames[d])} />
-          </foreignObject>
-        </g>
+        <foreignObject height={20} width={outerWidth}>
+          <Legend
+            color={color}
+            legendList={subGroups.map(
+              (d) => subGroupNames[d as keyof TRevenueSplitParameters]
+            )}
+          />
+        </foreignObject>
+      </g>
     </ResponsiveSVG>
   );
 }

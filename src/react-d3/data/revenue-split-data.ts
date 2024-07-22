@@ -1,3 +1,9 @@
+export type TRevenueSplitParameters = {
+  product_sales: string;
+  service_revenue: string;
+  ad_revenue: string;
+};
+
 export type TRevenueSplit = {
   name: string;
   product_sales: number;

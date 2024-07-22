@@ -54,6 +54,15 @@ const PieChart: React.FC = () => {
   return (
     <svg width={outerWidth} height={outerHeight}>
       <g style={{ transform: transform }}>
+        <text
+          x={width / 2}
+          dy={-20}
+          y={0}
+          textAnchor="middle"
+          style={{ fontSize: "16px", fontWeight: "bold" }}
+        >
+          {title}
+        </text>
         {arcs.map((d, i) => (
           <motion.path
             key={i}

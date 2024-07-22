@@ -1,7 +1,7 @@
 import React from "react";
 import * as d3 from "d3";
 import { motion } from "framer-motion";
-import { carData, TCar } from "react-d3/data/car-spec-data";
+import { carData, TCarSpecParameters } from "react-d3/data/car-spec-data";
 import { Legend } from "react-d3/components/Legends";
 
 const chartData = {
@@ -48,8 +48,8 @@ const SpiderChart: React.FC = () => {
     return {
       name: car.name,
       coordinates: parameters.map(({ name, angle, scale }) => {
-        let x = Math.cos(angle) * scale(car[name as keyof TCar]);
-        let y = Math.sin(angle) * scale(car[name as keyof TCar]);
+        let x = Math.cos(angle) * scale(car[name as keyof TCarSpecParameters]);
+        let y = Math.sin(angle) * scale(car[name as keyof TCarSpecParameters]);
         return translateCoordinates(x, y);
       }),
     };

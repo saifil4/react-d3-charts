@@ -1,4 +1,12 @@
-export type TCar = {
+export type TCarSpecParameters = {
+  speed: number;
+  fuel_efficiency: number;
+  safety: number;
+  comfort: number;
+  price: number;
+};
+
+export type TCarSpecs = TCarSpecParameters & {
   name: string;
   speed: number;
   fuel_efficiency: number;
@@ -7,7 +15,7 @@ export type TCar = {
   price: number;
 };
 
-export const carData: TCar[] = [
+export const carData: TCarSpecs[] = [
   {
     name: "Car A",
     speed: 40,
