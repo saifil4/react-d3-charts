@@ -32,7 +32,7 @@ const ChartSection: React.FC<Props> = ({
       </div>
 
       <br />
-      <div className="bg-gray-100 text-center rounded sm:rounded-xl">
+      <div className="bg-gray-100 text-center rounded sm:rounded-xl flex justify-center">
         <Chart />
       </div>
       <br />
