@@ -1,16 +1,17 @@
+import AreaChart from "react-d3/charts/other-chart/AreaChart";
+import * as areaChartRaw from "react-d3/charts/other-chart/AreaChart?raw";
+import * as stockDataRaw from "react-d3/data/stock-data?raw";
+import * as axisRaw from "react-d3/components/Axis?raw";
+
 import SpiderChart from "react-d3/charts/other-chart/SpiderChart";
-import * as SimpleSpiderChartRaw from "react-d3/charts/other-chart/SpiderChart?raw";
-// import * as SimpleSpiderChartConfig from "react-d3/charts/other-chart/spider-chart/config?raw";
+import * as spiderChartRaw from "react-d3/charts/other-chart/SpiderChart?raw";
+import * as carSpecDataRaw from "react-d3/data/car-spec-data?raw";
+import * as legendRaw from "react-d3/components/Legends?raw";
 
 import BubbleChart from "react-d3/charts/other-chart/BubbleChart";
+import * as bubbleChartRaw from "react-d3/charts/other-chart/BubbleChart?raw";
+import * as  taskPriorityDataRaw from "react-d3/data/task-priorty-data?raw";
 import { TChartSection } from "types";
-
-import AreaChart from "react-d3/charts/other-chart/AreaChart";
-
-import * as StockDataRaw from "react-d3/data/stock-data?raw";
-
-import * as SimpleAreaChartRaw from "react-d3/charts//other-chart/AreaChart?raw";
-import AreaChartWithTooltip from "react-d3/charts/area-chart/AreaChartWithTooltip";
 
 export const otherChartGroup: TChartSection[] = [
     {
@@ -18,8 +19,9 @@ export const otherChartGroup: TChartSection[] = [
         heading: "Area Chart",
         component: AreaChart,
         files: [
-            { code: SimpleAreaChartRaw.default, name: "SimpleAreaChart.tsx" },
-            { code: StockDataRaw.default, name: "dummy-stock-data.ts" },
+            { code: areaChartRaw.default, name: "SimpleAreaChart.tsx" },
+            { code: axisRaw.default, name: "Axis.tsx" },
+            { code: stockDataRaw.default, name: "dummy-stock-data.ts" },
         ],
         status: "available"
     },
@@ -28,8 +30,9 @@ export const otherChartGroup: TChartSection[] = [
         heading: "Spider Chart",
         component: SpiderChart,
         files: [
-            { code: SimpleSpiderChartRaw.default, name: "SimpleSpiderChart.tsx" },
-            { code: 'SimpleSpiderChartConfig.default', name: "config.ts" },
+            { code: spiderChartRaw.default, name: "SpiderChart.tsx" },
+            { code: legendRaw.default, name: "Legend.tsx" },
+            { code: carSpecDataRaw.default, name: "car-spec-data.ts" },
         ],
         status: "available"
     },
@@ -38,19 +41,10 @@ export const otherChartGroup: TChartSection[] = [
         heading: "Bubble Chart",
         component: BubbleChart,
         files: [
-            { code: SimpleSpiderChartRaw.default, name: "SimpleSpiderChart.tsx" },
-            { code: 'SimpleSpiderChartConfig.default', name: "config.ts" },
+            { code: bubbleChartRaw.default, name: "BubbleChart.tsx" },
+            { code: axisRaw.default, name: "Axis.tsx" },
+            { code: taskPriorityDataRaw.default, name: "task-priorty-data.ts" },
         ],
         status: "available"
-    },
-    {
-        group: 'other-chart',
-        heading: "Area Chart With Tooltip",
-        component: AreaChartWithTooltip,
-        files: [
-            { code: SimpleSpiderChartRaw.default, name: "SimpleSpiderChart.tsx" },
-            { code: 'SimpleSpiderChartConfig.default', name: "config.ts" },
-        ],
-        status: "in-progress"
-    },
+    }
 ]

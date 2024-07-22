@@ -30,7 +30,7 @@ const lineChartGroup: TChartSection[] = [
       { code: MultiLineChartRaw.default, name: "MultiLineChart.tsx" },
       { code: AxisRaw.default, name: "Axis.tsx" },
       { code: LegendRaw.default, name: "Legend.tsx" },
-      { code: RevenueDataRaw.default, name: "config.ts" },
+      { code: RevenueDataRaw.default, name: "revenue-historic-data.ts" },
     ],
     status: "available",
   },

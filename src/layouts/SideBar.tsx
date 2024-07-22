@@ -31,13 +31,6 @@ const SideBar: React.FC<TSideBarProps> = ({
           changeSection={changeSection}
         />
       ))}
-      <ChartGroup
-        selectedSection={selectedSection}
-        key="Coming Soon"
-        name="Coming soon"
-        sections={sectionList.filter((sl) => sl.status === "in-progress")}
-        changeSection={changeSection}
-      />
     </nav>
   );
 };
