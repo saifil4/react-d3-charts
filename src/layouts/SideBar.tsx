@@ -15,9 +15,8 @@ const SideBar: React.FC<TSideBarProps> = ({
   return (
     <nav className="flex flex-col w-full py-5 px-4">
       <ChartLink
+        name="getting-started"
         isSelected={selectedSection === "getting-started"}
-        key="getting-started"
-        name="Getting Started"
         changeSection={() => changeSection("getting-started")}
       />
       {groups.map((group) => (
@@ -56,8 +55,8 @@ const ChartGroup = ({
       </h2>
       {sections.map((section) => (
         <ChartLink
-          isSelected={section.heading === selectedSection}
           key={section.heading}
+          isSelected={section.heading === selectedSection}
           name={section.heading}
           changeSection={() => changeSection(section.heading)}
         />
@@ -67,21 +66,19 @@ const ChartGroup = ({
 };
 
 type TChartLinkProps = {
-  key: string;
   name: string;
   changeSection: (key: string) => void;
   isSelected: boolean;
 };
 
 const ChartLink: React.FC<TChartLinkProps> = ({
-  key,
   name,
   changeSection,
   isSelected,
 }) => {
   return (
     <a
-      onClick={() => changeSection(key)}
+      onClick={() => changeSection(name)}
       href={"#" + name.replace(" ", "-")}
       className={`py-2 px-4 text-sm font-medium cursor-pointer rounded-full ${
         isSelected
