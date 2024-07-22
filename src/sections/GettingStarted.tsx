@@ -22,9 +22,9 @@ const GettingStarted: React.FC = () => {
       <p>
         When searching for D3 implementations online, I often come across common
         mistakes, such as relying on DOM manipulation, which is not suitable for
-        React. I've made these mistakes myself in the past and therefore, I
-        wanted to create examples that display writing declarative code for
-        creating charts using D3.
+        React. Having made these mistakes myself in the past, I wanted to create
+        examples that demonstrate how to write declarative code for creating
+        charts using D3.
       </p>
       <SubHeading>How to use?</SubHeading>
       <p>
