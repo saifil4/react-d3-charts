@@ -40,7 +40,7 @@ const GettingStarted: React.FC = () => {
         message me on{" "}
         <a
           className="underline text-blue-500"
-          href="https://www.linkedin.com/in/saifilmomin/"
+          href="https://www.linkedin.com/in/saifil-momin/"
         >
           linkedin
         </a>
